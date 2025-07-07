@@ -14,7 +14,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@angular-workspace/shared/button": ["shared/src/index.ts"],
+      "@angular-workspace/shared/ui": ["shared/src/index.ts"],
+      "@angular-workspace/ui": ["ui/src/index.ts"],
+      "@angular-workspace/auth/*": ["features/auth/*"],
+      "@angular-workspace/dashboard/*": ["features/dashboard/*"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

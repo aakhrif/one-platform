@@ -1,27 +1,30 @@
 {
   "name": "angular-workspace",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "apps/angular-workspace/src",
+  "sourceRoot": "one-platform/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular/build:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/angular-workspace",
-        "browser": "apps/angular-workspace/src/main.ts",
+        "outputPath": "dist/one-platform",
+        "browser": "one-platform/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/angular-workspace/tsconfig.app.json",
+        "tsConfig": "one-platform/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
+            "one-platform/src/assets",
+            "one-platform/src/favicon.ico",
+            "one-platform/src/index.html",
           {
             "glob": "**/*",
-            "input": "apps/angular-workspace/public"
+            "input": "one-platform/public"
           }
         ],
-        "styles": ["apps/angular-workspace/src/styles.scss"]
+        "styles": ["one-platform/src/styles.scss"]
       },
       "configurations": {
         "production": {
@@ -73,7 +76,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/angular-workspace/jest.config.ts"
+        "jestConfig": "one-platform/jest.config.ts"
       }
     },
     "serve-static": {
@@ -82,7 +85,7 @@
       "options": {
         "buildTarget": "angular-workspace:build",
         "port": 4200,
-        "staticFilePath": "dist/apps/angular-workspace/browser",
+        "staticFilePath": "dist/one-platform/browser",
         "spa": true
       }
     }
