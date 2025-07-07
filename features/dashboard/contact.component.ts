@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { ModalComponent } from 'features/shared/ui/modal.component';
 
 @Component({
   selector: 'app-contact',
   template: `
-    <div class="modal-content">
+    <app-modal [onClose]="close">
       <h3>Contact Form</h3>
       <form>
         <label>Name:<br><input type="text" name="name" /></label><br><br>
@@ -11,9 +12,14 @@ import { Component } from '@angular/core';
         <label>Message:<br><textarea name="message"></textarea></label><br><br>
         <button type="submit">Send</button>
       </form>
-    </div>
+    </app-modal>
   `,
   styleUrls: ['./contact.component.scss'],
   standalone: true,
+  imports: [ModalComponent],
 })
-export class ContactComponent {}
+export class ContactComponent {
+  close = () => {
+    window.location.href = '/dashboard';
+  };
+}
