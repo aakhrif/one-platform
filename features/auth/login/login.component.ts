@@ -20,7 +20,12 @@ export class LoginComponent {
 
   onLogin() {
     this.auth.login(this.username, this.password).subscribe({
-      next: () => {
+      next: (user) => {
+        // Simulate JWT token
+        const token = btoa(
+          JSON.stringify({ username: user.username, exp: Date.now() + 1000 * 60 * 60 })
+        );
+        localStorage.setItem('jwt', token);
         localStorage.setItem('isLoggedIn', 'true');
         this.router.navigate(['/dashboard']);
       },

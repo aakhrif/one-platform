@@ -8,6 +8,11 @@ import { dashboardRoutes } from 'features/dashboard/dashboard.routes';
 export const appRoutes: Route[] = [
   {
     path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
+  {
+    path: 'login',
     component: LoginComponent,
   },
   {

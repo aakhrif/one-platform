@@ -7,10 +7,23 @@ export class AuthGuard implements CanActivate {
   constructor(private router: Router) {}
 
   canActivate(): Observable<boolean> {
-    // Simple mock: check localStorage for 'isLoggedIn'
-    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-    if (!isLoggedIn) {
-      this.router.navigate(['/welcome']);
+    // Check for JWT token in localStorage
+    const token = localStorage.getItem('jwt');
+    if (!token) {
+      this.router.navigate(['/login']);
+      return of(false);
+    }
+    // Optionally: decode and check expiry
+    try {
+      const payload = JSON.parse(atob(token));
+      if (payload.exp && payload.exp < Date.now()) {
+        localStorage.removeItem('jwt');
+        this.router.navigate(['/login']);
+        return of(false);
+      }
+    } catch {
+      localStorage.removeItem('jwt');
+      this.router.navigate(['/login']);
       return of(false);
     }
     return of(true);

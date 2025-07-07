@@ -15,6 +15,6 @@ import { Router } from '@angular/router';
 export class DashboardChild1Component {
   constructor(private router: Router) {}
   close() {
-    this.router.navigate(['../']);
+    this.router.navigate(['/dashboard']);
   }
 }

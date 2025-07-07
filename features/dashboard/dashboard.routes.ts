@@ -14,6 +14,10 @@ export const dashboardRoutes: Routes = [
         path: 'child2',
         loadComponent: () => import('./dashboard-child2.component').then(m => m.DashboardChild2Component),
       },
+      {
+        path: 'contact',
+        loadComponent: () => import('./contact.component').then(m => m.ContactComponent),
+      },
     ],
   },
 ];
