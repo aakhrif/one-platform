@@ -3,6 +3,7 @@ import { NxWelcome } from './nx-welcome';
 import { DashboardComponent } from '@angular-workspace/dashboard/dashboard.component';
 import { AuthGuard } from '@angular-workspace/auth/auth.guard';
 import { LoginComponent } from '@angular-workspace/auth/login/login.component';
+import { dashboardRoutes } from 'features/dashboard/dashboard.routes';
 
 export const appRoutes: Route[] = [
   {
@@ -15,7 +16,8 @@ export const appRoutes: Route[] = [
   },
   {
     path: 'dashboard',
-    component: DashboardComponent,
     canActivate: [AuthGuard],
+    children: dashboardRoutes[0].children,
+    component: DashboardComponent,
   },
 ];
