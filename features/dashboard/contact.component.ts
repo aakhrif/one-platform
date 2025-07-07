@@ -20,6 +20,8 @@ import { ModalComponent } from 'features/shared/ui/modal.component';
 })
 export class ContactComponent {
   close = () => {
-    window.location.href = '/dashboard';
+    history.replaceState(null, '', '/dashboard');
+    window.location.hash = '';
+    window.location.pathname = '/dashboard';
   };
 }
