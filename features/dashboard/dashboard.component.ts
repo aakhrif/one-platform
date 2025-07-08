@@ -27,6 +27,6 @@ export class DashboardComponent {
   logout() {
     localStorage.removeItem('jwt');
     localStorage.removeItem('isLoggedIn');
-    window.location.href = '/login';
+    window.location.href = '/';
   }
 }

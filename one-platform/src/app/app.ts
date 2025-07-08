@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { routeAnimations } from 'shared/animations/route-animations';
-import { ButtonComponent } from 'shared/ui/button/button.component';
 
 @Component({
-  imports: [RouterModule, ButtonComponent],
+  imports: [RouterModule],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',

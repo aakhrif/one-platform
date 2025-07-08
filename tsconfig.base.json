@@ -19,7 +19,8 @@
       "@angular-workspace/shared/ui": ["shared/src/index.ts"],
       "@angular-workspace/ui": ["ui/src/index.ts"],
       "@angular-workspace/auth/*": ["features/auth/*"],
-      "@angular-workspace/dashboard/*": ["features/dashboard/*"]
+      "@angular-workspace/dashboard/*": ["features/dashboard/*"],
+      "@features/*": ["features/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
