@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalComponent } from 'features/shared/ui/modal.component';
+import { ModalComponent } from 'shared/ui/modal/modal.component';
 
 @Component({
   selector: 'app-dashboard-child2',
