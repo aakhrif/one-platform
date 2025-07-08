@@ -1,6 +1,6 @@
 version: '3'
 services:
-  oneplatform-frontend:
+  frontend:
     hostname: oneplatform.cloud
     build:
       context: .
