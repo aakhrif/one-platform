@@ -28,6 +28,14 @@
   letter-spacing: 0.03em;
   margin-right: 2.5rem;
 }
+
+.ui-header__nav-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
 .ui-header__nav {
   display: flex;
   gap: 2.5rem;
@@ -36,6 +44,15 @@
   position: relative;
   z-index: 2;
 }
+
+.ui-header__search {
+  margin-left: 2.5rem;
+}
+
+.ui-header__lang-switcher {
+  margin-left: 1.2rem;
+}
+
 .ui-header__nav a {
   color: #004272;
   text-decoration: none;
@@ -55,8 +72,64 @@
 }
 
 .mega-panel {
-  position: absolute;
+  position: fixed;
   left: 0;
-  top: 100%;
-  /* ...restlicher SCSS... */
+  top: 4.5rem;
+  width: 100vw;
+  min-width: unset;
+  background: #fff;
+  border-radius: 0 0 1.1rem 1.1rem;
+  box-shadow: 0 8px 32px rgba(0,66,114,0.13);
+  padding: 1.1rem 3.5rem 1.1rem 3.5rem;
+  z-index: 9999;
+  animation: fadeInDown 0.22s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  pointer-events: auto;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mega-panel__close {
+  position: absolute;
+  top: 0.7rem;
+  right: 2.5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #004272;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.mega-panel__content {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+}
+
+.mega-panel__section h4 {
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+  color: #0085cd;
+}
+
+.mega-panel__section a {
+  display: block;
+  color: #004272;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  border-radius: 0.4rem;
+  padding: 0.2rem 0.6rem;
+  transition: background 0.15s, color 0.15s;
+}
+.mega-panel__section a:hover {
+  background: #e0e7ef;
+  color: #0085cd;
 }

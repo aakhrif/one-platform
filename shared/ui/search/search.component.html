@@ -1,0 +1,6 @@
+<form class="ui-search" (submit)="$event.preventDefault(); onSearch()">
+  <input type="text" [(ngModel)]="query" name="search" placeholder="Suchen..." class="ui-search__input" />
+  <button type="submit" class="ui-search__button" aria-label="Suchen">
+    🔍
+  </button>
+</form>

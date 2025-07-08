@@ -20,7 +20,10 @@
       "@angular-workspace/ui": ["ui/src/index.ts"],
       "@angular-workspace/auth/*": ["features/auth/*"],
       "@angular-workspace/dashboard/*": ["features/dashboard/*"],
-      "@features/*": ["features/*"]
+      "@features/*": ["features/*"],
+      "@shared/*": ["shared/*"],
+      "@shared/language-switcher": ["shared/ui/language-switcher/language-switcher.component.ts"],
+      "@shared/language-switcher/*": ["shared/ui/language-switcher/*"],
     }
   },
   "exclude": ["node_modules", "tmp"]

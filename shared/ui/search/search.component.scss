@@ -1,0 +1,31 @@
+.ui-search {
+  display: flex;
+  align-items: center;
+  background: #e0e7ef;
+  border-radius: 0.7rem;
+  padding: 0.1rem 0.7rem 0.1rem 0.7rem;
+  margin-right: 1.5rem;
+}
+.ui-search__input {
+  border: none;
+  background: transparent;
+  font-size: 1.08rem;
+  padding: 0.4rem 0.2rem;
+  outline: none;
+  width: 120px;
+  color: #004272;
+}
+.ui-search__button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #0085cd;
+  cursor: pointer;
+  margin-left: 0.3rem;
+  padding: 0.2rem 0.3rem;
+  border-radius: 0.4rem;
+  transition: background 0.15s;
+}
+.ui-search__button:hover {
+  background: #d0e3f7;
+}
