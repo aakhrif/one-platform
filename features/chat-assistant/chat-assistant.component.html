@@ -1,0 +1,15 @@
+<div class="chat-assistant" [class.open]="isOpen">
+  <button class="chat-assistant__icon" (click)="toggleChat()">
+    <span class="chat-assistant__avatar">🤖</span>
+    <span class="chat-assistant__chat-icon">💬</span>
+  </button>
+  <div class="chat-assistant__box" *ngIf="isOpen">
+    <div class="chat-assistant__header">Chat Assistant
+      <button class="chat-assistant__close" (click)="toggleChat()" aria-label="Schließen">×</button>
+    </div>
+    <div class="chat-assistant__messages">
+      <div class="chat-assistant__message chat-assistant__message--bot">Hallo! Wie kann ich helfen?</div>
+    </div>
+    <input class="chat-assistant__input" placeholder="Nachricht eingeben..." disabled />
+  </div>
+</div>
