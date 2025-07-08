@@ -16,8 +16,8 @@ import { LoginComponent } from '@features/auth/login/login.component';
       </div>
     </div>
   `,
-  styleUrls: ['./start.component.scss'],
+  styleUrls: ['./start.page.scss'],
   standalone: true,
   imports: [LoginComponent],
 })
-export class StartComponent {}
+export class StartPage {}
