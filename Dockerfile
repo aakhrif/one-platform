@@ -1,8 +1,17 @@
 # Stage 1: Build the Angular app
 FROM node:20-alpine AS builder
 WORKDIR /app
-COPY . .
+
+COPY package*.json ./
+COPY nx.json ./
+# COPY angular.json ./
+COPY tsconfig.base.json ./
+# COPY .npmrc ./
+
 RUN npm ci
+
+COPY . .
+
 RUN npx nx build one-platform --configuration=production
 
 # Stage 2: Serve with Nginx
