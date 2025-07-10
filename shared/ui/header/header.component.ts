@@ -17,25 +17,21 @@ import { SearchComponent } from '../search/search.component';
         <div class="mega-panel" *ngIf="panelType"
           (mouseenter)="panelType = panelType"
           (mouseleave)="panelType = ''">
-          <button class="mega-panel__close" (click)="panelType = ''" aria-label="Panel schließen">×</button>
           <div class="mega-panel__content">
             <ng-container *ngIf="panelType === 'products'">
               <div class="mega-panel__section">
-                <h4>Products</h4>
                 <a routerLink="/products/ai">AI Products</a>
                 <a routerLink="/products/stocks">Stocks</a>
               </div>
             </ng-container>
             <ng-container *ngIf="panelType === 'docs'">
               <div class="mega-panel__section">
-                <h4>Docs</h4>
                 <a routerLink="/docs/getting-started">Getting Started</a>
                 <a routerLink="/docs/api">API Reference</a>
               </div>
             </ng-container>
             <ng-container *ngIf="panelType === 'contact'">
               <div class="mega-panel__section">
-                <h4>Contact</h4>
                 <a routerLink="/contact">Contact Form</a>
                 <a routerLink="/contact/support">Support</a>
               </div>
