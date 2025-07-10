@@ -77,9 +77,9 @@
   position: fixed;
   left: 0;
   top: 4.5rem;
-  width: 100%;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100vw;
+  max-width: none;
+  transform: none;
   min-width: unset;
   background: #fff;
   border-radius: 0 0 1.1rem 1.1rem;
