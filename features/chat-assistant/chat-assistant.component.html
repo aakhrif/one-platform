@@ -8,8 +8,8 @@
       <button class="chat-assistant__close" (click)="toggleChat()" aria-label="Schließen">×</button>
     </div>
     <div class="chat-assistant__messages">
-      <div class="chat-assistant__message chat-assistant__message--bot">Hallo! Wie kann ich helfen?</div>
+      <div *ngFor="let msg of messages" [ngClass]="{'chat-assistant__message--bot': msg.from === 'bot', 'chat-assistant__message--user': msg.from === 'user'}" class="chat-assistant__message">{{msg.text}}</div>
     </div>
-    <input class="chat-assistant__input" placeholder="Nachricht eingeben..." disabled />
+    <input class="chat-assistant__input" placeholder="Nachricht eingeben..." [(ngModel)]="message" (keydown.enter)="sendMessage()" />
   </div>
 </div>
