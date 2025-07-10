@@ -4,10 +4,22 @@
     "docs": "Documentation",
     "contact": "Contact"
   },
+  "products": {
+    "normen": "Standards Review",
+    "iso": "ISO Tests",
+    "transformation": "Transformation Strategy",
+    "prozesse": "Process Optimization"
+  },
   "start": {
     "headline": "Welcome to the Platform",
     "desc1": "Experience modern UI/UX, modular architecture, and an intuitive user interface.",
     "desc2": "This platform demonstrates DDD, feature slices, and reusable components.",
     "desc3": "Start with your login and discover the dashboard!"
+  },
+  "footer": {
+    "impressum": "Impressum",
+    "datenschutz": "Datenschutz",
+    "impressumText": "Community driven project, Demo purposes.",
+    "datenschutzText": "No data is currently collected."
   }
 }

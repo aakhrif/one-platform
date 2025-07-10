@@ -1,0 +1,58 @@
+.ui-footer {
+  width: 100%;
+  background: linear-gradient(90deg, #512da8 0%, #8e24aa 100%); // modern purple gradient
+  color: #fff;
+  font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  box-shadow: 0 -4px 24px rgba(103,58,183,0.13);
+  padding: 2.2rem 0 2.2rem 0;
+  margin-top: -3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.2rem 1.2rem 0 0;
+  position: relative;
+  z-index: 20;
+}
+.ui-footer__content {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+}
+@media (max-width: 900px) {
+  .ui-footer__content {
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 0 1rem;
+    text-align: center;
+  }
+}
+.ui-footer__brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 8px #00325a99;
+}
+.ui-footer__links {
+  display: flex;
+  gap: 2.2rem;
+}
+.ui-footer__link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.2rem 0.7rem;
+  border-radius: 0.5rem;
+  background: rgba(0,133,205,0.12);
+  transition: background 0.18s, color 0.18s, padding 0.18s;
+}
+.ui-footer__link:hover {
+  background: #0085cd;
+  color: #fff;
+  text-shadow: 0 2px 8px #00325a99;
+  padding: 0.5rem 1.3rem;
+}

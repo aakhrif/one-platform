@@ -25,7 +25,7 @@
 }
 
 .ui-header__logo {
-  color: #0085cd;
+  color: #2a1745; // dunkles Purple für Logo
   font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -62,6 +62,11 @@
 
 .ui-header__lang-switcher {
   margin-left: 1.2rem;
+  background: #ede7f6;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.7rem;
+  color: #512da8;
+  font-weight: 600;
 }
 
 .ui-header__nav a {

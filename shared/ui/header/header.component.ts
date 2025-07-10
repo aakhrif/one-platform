@@ -26,8 +26,10 @@ import { Subject, takeUntil } from 'rxjs';
           <div class="mega-panel__content">
             <ng-container *ngIf="panelType === 'products'">
               <div class="mega-panel__section">
-                <a routerLink="/products/ai">AI Products</a>
-                <a routerLink="/products/stocks">Stocks</a>
+                <a>{{ t('products.normen') }}</a>
+                <a>{{ t('products.iso') }}</a>
+                <a>{{ t('products.transformation') }}</a>
+                <a>{{ t('products.prozesse') }}</a>
               </div>
             </ng-container>
             <ng-container *ngIf="panelType === 'docs'">
