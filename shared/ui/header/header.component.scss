@@ -17,6 +17,7 @@
   position: fixed;
   top: 0;
   box-sizing: border-box;
+  width: 100%;
 }
 
 .start-layout, .feature-start {
@@ -28,7 +29,7 @@
   font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: 0.03em;
-  margin-right: 2.5rem;
+  margin-right: auto;
 }
 
 .ui-header__nav-wrap {
@@ -128,4 +129,88 @@
 .mega-panel__section a:hover {
   background: #e0e7ef;
   color: #0085cd;
+}
+
+.ui-header__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 0;
+  z-index: 10001;
+}
+.ui-header__burger span {
+  display: block;
+  width: 2rem;
+  height: 0.22rem;
+  background: #004272;
+  margin: 0.28rem 0;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+@media (max-width: 900px) {
+  .ui-header__burger {
+    display: flex;
+    position: absolute;
+    right: 2rem;
+    top: 1.2rem;
+    z-index: 10001;
+  }
+  .ui-header__nav-wrap {
+    display: none;
+    position: fixed;
+    top: 4.5rem;
+    left: 0;
+    width: 100vw;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 3.5rem;
+    padding: 2rem 1.5rem 2rem 2rem;
+    box-shadow: 0 8px 32px rgba(0,66,114,0.13);
+    z-index: 10000;
+    transform: translateY(-120%);
+    transition: transform 0.25s;
+    pointer-events: none;
+  }
+  .ui-header__nav-wrap.open {
+    display: flex;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .ui-header__nav {
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  .ui-header__search {
+    display: none !important;
+  }
+  .ui-header__lang-switcher {
+    display: none !important;
+  }
+  .ui-header__nav-wrap.open .ui-header__lang-switcher {
+    display: block !important;
+    margin-bottom: 1.2rem;
+    margin-left: 0;
+  }
+  .mega-panel {
+    display: none !important;
+  }
+  .ui-header__nav a.active + .mega-panel,
+  .ui-header__nav a:focus + .mega-panel {
+    display: flex !important;
+  }
+  .mega-panel__lang-switcher {
+    display: block !important;
+    margin: 1.2rem 0 0 0;
+  }
 }

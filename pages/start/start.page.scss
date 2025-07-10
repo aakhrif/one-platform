@@ -40,3 +40,35 @@
   line-height: 1.6;
   opacity: 0.96;
 }
+
+@media (max-width: 900px) {
+  .feature-start {
+    flex-direction: column;
+    min-height: unset;
+    padding-top: 4.5rem; // Ensure space for sticky header on mobile
+  }
+  .feature-start__left, .feature-start__right {
+    flex: 1 1 100%;
+    padding: 2rem 1.2rem;
+    border-right: none;
+    border-bottom: 1.5px solid #e0e7ef;
+  }
+  .feature-start__right {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .feature-start {
+    padding-top: 4.5rem; // Also on very small screens
+  }
+  .feature-start__left, .feature-start__right {
+    padding: 1.2rem 0.5rem;
+  }
+  .feature-start__right h1 {
+    font-size: 1.4rem;
+  }
+  .feature-start__right p {
+    font-size: 1rem;
+  }
+}
