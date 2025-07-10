@@ -1,7 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { ChatBotService } from './chat-bot.service';
+import { ChatBotService, FaqNode } from './chat-bot.service';
 
 @Component({
   selector: 'feature-chat-assistant',
@@ -9,47 +8,26 @@ import { ChatBotService } from './chat-bot.service';
   styleUrls: ['./chat-assistant.component.scss'],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule],
 })
 export class ChatAssistantComponent {
   isOpen = false;
-  message = '';
-  messages: { from: 'user' | 'bot', text: string }[] = [
-    { from: 'bot', text: 'Hallo! Wie kann ich helfen?' }
+  conversation: { from: 'bot' | 'user', text: string }[] = [
+    { from: 'bot', text: 'Wie kann ich helfen? Wähle eine Frage:' }
   ];
-  lastSent = 0;
-  maxLength = 200;
-  error = '';
+  currentFaqs: FaqNode[];
 
-  constructor(private chatBot: ChatBotService) {}
+  constructor(private chatBot: ChatBotService) {
+    this.currentFaqs = this.chatBot.faqs;
+  }
 
   toggleChat() {
     this.isOpen = !this.isOpen;
   }
 
-  sendMessage() {
-    const text = this.message.trim();
-    const now = Date.now();
-    this.error = '';
-    if (!text) {
-      this.error = 'Bitte gib eine Nachricht ein.';
-      return;
-    }
-    if (text.length > this.maxLength) {
-      this.error = `Maximal ${this.maxLength} Zeichen erlaubt.`;
-      return;
-    }
-    if (now - this.lastSent < 1000) {
-      this.error = 'Bitte warte einen Moment, bevor du erneut sendest.';
-      return;
-    }
-    this.messages.push({ from: 'user', text });
-    this.message = '';
-    this.lastSent = now;
-    // Bot-Antwort generieren
-    setTimeout(() => {
-      const reply = this.chatBot.getBotReply(text);
-      this.messages.push({ from: 'bot', text: reply });
-    }, 500);
+  selectFaq(faq: FaqNode) {
+    this.conversation.push({ from: 'user', text: faq.question });
+    this.conversation.push({ from: 'bot', text: faq.answer });
+    this.currentFaqs = faq.followUps || this.chatBot.faqs;
   }
 }

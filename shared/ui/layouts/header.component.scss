@@ -1,0 +1,139 @@
+.ui-header {
+  width: 100vw;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1.2rem 2.5rem 1.2rem 2rem;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0,66,114,0.07);
+  font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+  font-size: 1.18rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+}
+
+.start-layout, .feature-start {
+  padding-top: 4.5rem; /* Platz für die fixe Header-Bar */
+}
+
+.ui-header__logo {
+  color: #0085cd;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin-right: 2.5rem;
+}
+.ui-header__nav {
+  display: flex;
+  gap: 2.5rem;
+  flex: 1 1 auto;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 2;
+}
+.ui-header__nav a {
+  color: #004272;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.08rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: background 0.15s, color 0.15s;
+  position: relative;
+  z-index: 2;
+}
+.ui-header__nav a.active,
+.ui-header__nav a:hover,
+.ui-header__nav a:focus {
+  background: #e0e7ef;
+  color: #0085cd;
+}
+
+.mega-panel {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100vw;
+  height: 260px;
+  background: #fff;
+  box-shadow: 0 8px 32px rgba(0,66,114,0.13);
+  border-bottom-left-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 0.22s cubic-bezier(.4,0,.2,1), transform 0.22s cubic-bezier(.4,0,.2,1);
+  z-index: 99;
+}
+.mega-panel.ng-star-inserted {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.mega-panel__content {
+  display: flex;
+  gap: 3.5rem;
+  padding: 2.2rem 2.5rem;
+  width: 100%;
+  max-width: 1100px;
+  justify-content: flex-start;
+}
+.mega-panel__section {
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.mega-panel__section h4 {
+  margin: 0 0 0.7rem 0;
+  font-size: 1.08rem;
+  color: #0085cd;
+  font-weight: 700;
+}
+.mega-panel__section a {
+  color: #004272;
+  background: none;
+  padding: 0.45rem 1.1rem 0.45rem 0.8rem;
+  border-radius: 0.4rem;
+  font-size: 1.04rem;
+  font-weight: 500;
+  transition: background 0.14s, color 0.14s;
+  text-decoration: none;
+}
+.mega-panel__section a:hover,
+.mega-panel__section a.active {
+  background: #e0e7ef;
+  color: #0085cd;
+}
+
+.mega-panel__close {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #004272;
+  cursor: pointer;
+  z-index: 101;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+.mega-panel__close:hover,
+.mega-panel__close:focus {
+  opacity: 1;
+  color: #b8002a;
+}
+
+/* Entfernt die Hover-Bridge, Panel klebt direkt am Header */
+.ui-header__nav::after {
+  display: none;
+}
