@@ -1,0 +1,13 @@
+{
+  "header": {
+    "products": "Produkte",
+    "docs": "Dokumentation",
+    "contact": "Kontakt"
+  },
+  "start": {
+    "headline": "Willkommen zur Plattform",
+    "desc1": "Erleben Sie modernes UI/UX, modulare Architektur und eine intuitive Benutzeroberfläche.",
+    "desc2": "Diese Plattform demonstriert DDD, Feature-Slices und wiederverwendbare Komponenten.",
+    "desc3": "Starten Sie mit Ihrem Login und entdecken Sie das Dashboard!"
+  }
+}

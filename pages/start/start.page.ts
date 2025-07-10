@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { LoginComponent } from '@features/auth/login/login.component';
 import { ChatAssistantComponent } from '@features/chat-assistant/chat-assistant.component';
+import { TranslationService } from 'shared/services/translation.service';
 
 @Component({
   selector: 'feature-start',
@@ -10,10 +11,10 @@ import { ChatAssistantComponent } from '@features/chat-assistant/chat-assistant.
         <app-login></app-login>
       </div>
       <div class="feature-start__right">
-        <h1>Willkommen zur Plattform</h1>
-        <p>Erleben Sie modernes UI/UX, modulare Architektur und eine intuitive Benutzeroberfläche.</p>
-        <p>Diese Plattform demonstriert DDD, Feature-Slices und wiederverwendbare Komponenten.</p>
-        <p>Starten Sie mit Ihrem Login und entdecken Sie das Dashboard!</p>
+        <h1>{{ t('start.headline') }}</h1>
+        <p>{{ t('start.desc1') }}</p>
+        <p>{{ t('start.desc2') }}</p>
+        <p>{{ t('start.desc3') }}</p>
       </div>
       <feature-chat-assistant></feature-chat-assistant>
     </div>
@@ -22,4 +23,9 @@ import { ChatAssistantComponent } from '@features/chat-assistant/chat-assistant.
   standalone: true,
   imports: [LoginComponent, ChatAssistantComponent],
 })
-export class StartPage {}
+export class StartPage {
+  private translation = inject(TranslationService);
+  t(key: string) {
+    return this.translation.translate(key);
+  }
+}

@@ -1,8 +1,9 @@
-import { Component, HostListener, OnDestroy } from '@angular/core';
+import { Component, HostListener, OnDestroy, inject } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { LanguageSwitcherComponent } from '../language-switcher/language-switcher.component';
 import { SearchComponent } from '../search/search.component';
 import { DeviceService } from '../device.service';
+import { TranslationService } from 'shared/services/translation.service';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
@@ -15,9 +16,9 @@ import { Subject, takeUntil } from 'rxjs';
       </button>
       <div class="ui-header__nav-wrap" [class.open]="navOpen">
         <nav class="ui-header__nav">
-          <a routerLink="/products" routerLinkActive="active" (mouseenter)="showPanel('products')">Products</a>
-          <a routerLink="/docs" routerLinkActive="active" (mouseenter)="showPanel('docs')">Docs</a>
-          <a routerLink="/contact" routerLinkActive="active" (mouseenter)="showPanel('contact')">Contact</a>
+          <a routerLink="/products" routerLinkActive="active" (mouseenter)="showPanel('products')">{{ t('header.products') }}</a>
+          <a routerLink="/docs" routerLinkActive="active" (mouseenter)="showPanel('docs')">{{ t('header.docs') }}</a>
+          <a routerLink="/contact" routerLinkActive="active" (mouseenter)="showPanel('contact')">{{ t('header.contact') }}</a>
         </nav>
         <div class="mega-panel" *ngIf="panelType"
           (mouseenter)="panelType = panelType"
@@ -58,6 +59,7 @@ export class HeaderComponent implements OnDestroy {
   navOpen = false;
   isMobile = false;
   private destroy$ = new Subject<void>();
+  private translation = inject(TranslationService);
 
   constructor(private device: DeviceService) {
     this.device.isMobile$
@@ -76,6 +78,10 @@ export class HeaderComponent implements OnDestroy {
 
   showPanel(type: 'products' | 'docs' | 'contact') {
     this.panelType = type;
+  }
+
+  t(key: string) {
+    return this.translation.translate(key);
   }
 
   @HostListener('document:click', ['$event'])

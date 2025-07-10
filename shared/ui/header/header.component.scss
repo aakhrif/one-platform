@@ -51,7 +51,9 @@
   position: relative;
   z-index: 2;
   flex: none;
-  width: auto;
+  width: 480px; // Noch breiter, damit auch längere deutsche Begriffe keinen Shift verursachen
+  min-width: 480px;
+  max-width: 480px;
 }
 
 .ui-header__search {

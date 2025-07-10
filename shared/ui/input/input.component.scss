@@ -1,0 +1,28 @@
+.ui-input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1.5px solid #cfd8dc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  background: #fff;
+}
+.ui-input--focused {
+  border-color: #0085cd;
+  box-shadow: 0 0 0 2px #0085cd33;
+}
+.ui-input--error {
+  border-color: #e53935;
+}
+.ui-input__label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: #004272;
+}
+.ui-input__error {
+  color: #e53935;
+  font-size: 0.92rem;
+  margin-top: 0.2rem;
+}

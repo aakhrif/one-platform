@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { routeAnimations } from 'shared/animations/route-animations';
+import { TranslationService } from 'shared/services/translation.service';
 
 @Component({
   imports: [RouterModule],
@@ -11,6 +12,12 @@ import { routeAnimations } from 'shared/animations/route-animations';
 })
 export class App {
   protected title = 'angular-workspace';
+  private translation = inject(TranslationService);
+
+  constructor() {
+    this.translation.setLanguage('de');
+  }
+
   alert(msg: string) {
     window.alert(msg);
   }

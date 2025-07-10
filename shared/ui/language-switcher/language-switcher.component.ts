@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { TranslationService } from 'shared/services/translation.service';
 
 @Component({
   selector: 'feature-language-switcher',
@@ -7,8 +8,11 @@ import { Component } from '@angular/core';
   standalone: true,
 })
 export class LanguageSwitcherComponent {
+  private translation = inject(TranslationService);
   lang: 'de' | 'en' = 'de';
+
   setLang(lang: 'de' | 'en') {
     this.lang = lang;
+    this.translation.setLanguage(lang);
   }
 }
