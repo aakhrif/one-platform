@@ -1,5 +1,13 @@
 .ui-footer {
   width: 100%;
+  left: 0;
+  right: 0;
+  margin: 0;
+  border-radius: 1.2rem 1.2rem 0 0;
+  position: relative;
+  bottom: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
   background: linear-gradient(90deg, #512da8 0%, #8e24aa 100%); // modern purple gradient
   color: #fff;
   font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
@@ -55,4 +63,12 @@
   color: #fff;
   text-shadow: 0 2px 8px #00325a99;
   padding: 0.5rem 1.3rem;
+}
+body, html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
 }

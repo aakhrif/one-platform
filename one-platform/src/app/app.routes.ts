@@ -12,9 +12,17 @@ export const appRoutes: Route[] = [
     path: '',
     component: StartLayoutComponent,
     children: [
-      { path: '', component: StartPage },
+      { path: '', component: StartPage, pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
       { path: 'welcome', component: NxWelcome },
+    ]
+  },
+  {
+    path: 'docs',
+    component: StartLayoutComponent,
+    children: [
+      { path: 'getting-started', loadComponent: () => import('pages/docs/docs-getting-started.page').then(m => m.DocsGettingStartedPage) },
+      // weitere Doku-Seiten hier
     ]
   },
   {

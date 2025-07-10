@@ -5,12 +5,15 @@ import { SearchComponent } from '../search/search.component';
 import { DeviceService } from '../device.service';
 import { TranslationService } from 'shared/services/translation.service';
 import { Subject, takeUntil } from 'rxjs';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'ui-header',
   template: `
     <header class="ui-header">
-      <span class="ui-header__logo">🌐 0nePlatform</span>
+      <span class="ui-header__logo">
+        <a routerLink="/" style="text-decoration:none;color:inherit;cursor:pointer">🌐 0nePlatform</a>
+      </span>
       <button class="ui-header__burger" (click)="toggleNav()" aria-label="Menü öffnen/schließen">
         <span></span><span></span><span></span>
       </button>
@@ -26,21 +29,21 @@ import { Subject, takeUntil } from 'rxjs';
           <div class="mega-panel__content">
             <ng-container *ngIf="panelType === 'products'">
               <div class="mega-panel__section">
-                <a>{{ t('products.normen') }}</a>
-                <a>{{ t('products.iso') }}</a>
-                <a>{{ t('products.transformation') }}</a>
-                <a>{{ t('products.prozesse') }}</a>
+                <a routerLink="/products/normen">{{ t('products.normen') }}</a>
+                <a routerLink="/products/iso">{{ t('products.iso') }}</a>
+                <a routerLink="/products/transformation">{{ t('products.transformation') }}</a>
+                <a routerLink="/products/prozesse">{{ t('products.prozesse') }}</a>
               </div>
             </ng-container>
             <ng-container *ngIf="panelType === 'docs'">
               <div class="mega-panel__section">
-                <a routerLink="/docs/getting-started">Getting Started</a>
+                <a routerLink="/docs/getting-started" style="cursor:pointer" (click)="logDocsClick($event)">Getting Started</a>
                 <a routerLink="/docs/api">API Reference</a>
               </div>
             </ng-container>
             <ng-container *ngIf="panelType === 'contact'">
               <div class="mega-panel__section">
-                <a routerLink="/contact">Contact Form</a>
+                <a routerLink="/contact/form">Contact Form</a>
                 <a routerLink="/contact/support">Support</a>
               </div>
             </ng-container>
@@ -54,7 +57,7 @@ import { Subject, takeUntil } from 'rxjs';
   `,
   styleUrls: ['./header.component.scss'],
   standalone: true,
-  imports: [NgIf, LanguageSwitcherComponent, SearchComponent],
+  imports: [NgIf, LanguageSwitcherComponent, SearchComponent, RouterModule],
 })
 export class HeaderComponent implements OnDestroy {
   panelType: 'products' | 'docs' | 'contact' | '' = '';
@@ -84,6 +87,10 @@ export class HeaderComponent implements OnDestroy {
 
   t(key: string) {
     return this.translation.translate(key);
+  }
+
+  logDocsClick(event: Event) {
+    console.log('Getting Started link clicked', event);
   }
 
   @HostListener('document:click', ['$event'])
