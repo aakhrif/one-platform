@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ChatBotService } from './chat-bot.service';
 
 @Component({
   selector: 'feature-chat-assistant',
@@ -16,6 +17,11 @@ export class ChatAssistantComponent {
   messages: { from: 'user' | 'bot', text: string }[] = [
     { from: 'bot', text: 'Hallo! Wie kann ich helfen?' }
   ];
+  lastSent = 0;
+  maxLength = 200;
+  error = '';
+
+  constructor(private chatBot: ChatBotService) {}
 
   toggleChat() {
     this.isOpen = !this.isOpen;
@@ -23,9 +29,27 @@ export class ChatAssistantComponent {
 
   sendMessage() {
     const text = this.message.trim();
-    if (!text) return;
+    const now = Date.now();
+    this.error = '';
+    if (!text) {
+      this.error = 'Bitte gib eine Nachricht ein.';
+      return;
+    }
+    if (text.length > this.maxLength) {
+      this.error = `Maximal ${this.maxLength} Zeichen erlaubt.`;
+      return;
+    }
+    if (now - this.lastSent < 1000) {
+      this.error = 'Bitte warte einen Moment, bevor du erneut sendest.';
+      return;
+    }
     this.messages.push({ from: 'user', text });
     this.message = '';
-    // Hier könnte Bot-Logik folgen
+    this.lastSent = now;
+    // Bot-Antwort generieren
+    setTimeout(() => {
+      const reply = this.chatBot.getBotReply(text);
+      this.messages.push({ from: 'bot', text: reply });
+    }, 500);
   }
 }

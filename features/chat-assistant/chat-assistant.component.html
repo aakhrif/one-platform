@@ -10,6 +10,7 @@
     <div class="chat-assistant__messages">
       <div *ngFor="let msg of messages" [ngClass]="{'chat-assistant__message--bot': msg.from === 'bot', 'chat-assistant__message--user': msg.from === 'user'}" class="chat-assistant__message">{{msg.text}}</div>
     </div>
-    <input class="chat-assistant__input" placeholder="Nachricht eingeben..." [(ngModel)]="message" (keydown.enter)="sendMessage()" />
+    <input class="chat-assistant__input" placeholder="Nachricht eingeben..." [(ngModel)]="message" (keydown.enter)="sendMessage()" [attr.maxLength]="maxLength" />
+    <div class="chat-assistant__error" *ngIf="error">{{error}}</div>
   </div>
 </div>
