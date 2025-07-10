@@ -87,3 +87,6 @@ curl http://localhost:4200/assets/users.json
 
 - This workspace is managed by Nx for consistent project configuration, code generation, and dependency management.
 - For more info, see the [Nx documentation](https://nx.dev) or run `npx nx --help`.
+
+## To Do
+- Chat assistant
