@@ -7,7 +7,7 @@ import { SearchComponent } from '../search/search.component';
   selector: 'ui-header',
   template: `
     <header class="ui-header">
-      <span class="ui-header__logo">🌐 OnePlatform</span>
+      <span class="ui-header__logo">🌐 0nePlatform</span>
       <div class="ui-header__nav-wrap">
         <nav class="ui-header__nav">
           <a routerLink="/products" routerLinkActive="active" (mouseenter)="showPanel('products')">Products</a>

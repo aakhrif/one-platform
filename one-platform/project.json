@@ -16,9 +16,8 @@
         "tsConfig": "one-platform/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-            "one-platform/src/assets",
-            "one-platform/src/favicon.ico",
-            "one-platform/src/index.html",
+          "one-platform/src/assets",
+          "one-platform/src/favicon.ico",
           {
             "glob": "**/*",
             "input": "one-platform/public"

@@ -4,19 +4,21 @@ WORKDIR /app
 
 COPY package*.json ./
 COPY nx.json ./
-# COPY angular.json ./
 COPY tsconfig.base.json ./
-# COPY .npmrc ./
+# Kopiere den gesamten Workspace (außer node_modules und dist)
+COPY . .
 
 RUN npm ci
 
-COPY . .
+# Baue mit verbose-Flag für mehr Debug-Output
+RUN npx nx build one-platform --configuration=production --verbose || (echo "\n==== NX BUILD FAILED ====" && cat /app/nx-error.log 2>/dev/null || true && exit 1)
 
-RUN npx nx build one-platform --configuration=production
+# Zeige den Inhalt des Build-Outputs
+RUN echo "=== BUILD OUTPUT CHECK ===" && ls -la /app/dist/one-platform/browser || echo "Build output missing!"
 
 # Stage 2: Serve with Nginx
 FROM nginx:1.25-alpine
-# COPY --from=builder /app/dist/one-platform /usr/share/nginx/html
+RUN rm -rf /usr/share/nginx/html/*
 COPY --from=builder /app/dist/one-platform/browser /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
