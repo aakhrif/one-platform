@@ -23,10 +23,16 @@
   color: #333;
   text-align: center;
   margin-top: 1.2rem;
+  background: #f0f4fa;
+  border-radius: 12px;
+  padding: 1.2rem 0.8rem;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.04);
 }
 
 .feature-start-mobile app-login {
   margin: 0 auto;
   width: 100%;
-  max-width: 400px;
+  max-width: 350px;
+  min-width: 0;
+  box-sizing: border-box;
 }

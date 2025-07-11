@@ -5,14 +5,20 @@ import { LoginComponent } from '@angular-workspace/auth/login/login.component';
 import { dashboardRoutes } from 'features/dashboard/dashboard.routes';
 import { StartLayoutComponent } from 'shared/ui/layouts/start-layout.component';
 import { DashboardLayoutComponent } from 'shared/ui/layouts/dashboard-layout.component';
-import { FeatureStartComponent } from 'shared/ui/layouts/feature-start.component';
 
 export const appRoutes: Route[] = [
   {
     path: '',
     component: StartLayoutComponent,
     children: [
-      { path: '', component: FeatureStartComponent, pathMatch: 'full' },
+      {
+        path: '',
+        loadComponent: () =>
+          window.innerWidth <= 900
+            ? import('shared/ui/layouts/feature-start-mobile.component').then(m => m.FeatureStartMobileComponent)
+            : import('shared/ui/layouts/feature-start.component').then(m => m.FeatureStartComponent),
+        pathMatch: 'full',
+      },
       { path: 'login', component: LoginComponent },
       { path: 'welcome', component: NxWelcome },
     ]
