@@ -20,11 +20,6 @@ export class App {
     this.translation.setLanguage('de');
   }
 
-  isDashboardRoute(): boolean {
-    // Adjust this check as needed for your dashboard route(s)
-    return this.router.url.startsWith('/dashboard');
-  }
-
   alert(msg: string) {
     window.alert(msg);
   }
