@@ -1,0 +1,32 @@
+.feature-start-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+  background: linear-gradient(120deg, #e0e7ef 0%, #f8fafc 100%);
+  gap: 1.2rem;
+}
+
+.feature-start-mobile h1 {
+  font-size: 1.4rem;
+  color: #004272;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.feature-start-mobile__info {
+  font-size: 1.08rem;
+  color: #333;
+  text-align: center;
+  margin-top: 1.2rem;
+}
+
+.feature-start-mobile app-login {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 400px;
+}

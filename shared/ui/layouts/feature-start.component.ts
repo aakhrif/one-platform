@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { LoginComponent } from '@features/auth/login/login.component';
 import { ChatAssistantComponent } from '@features/chat-assistant/chat-assistant.component';
-import { TranslationService } from 'shared/services/translation.service';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'feature-start',
@@ -19,11 +19,11 @@ import { TranslationService } from 'shared/services/translation.service';
       <feature-chat-assistant></feature-chat-assistant>
     </div>
   `,
-  styleUrls: ['./start.page.scss'],
+  styleUrls: ['./feature-start.component.scss'],
   standalone: true,
   imports: [LoginComponent, ChatAssistantComponent],
 })
-export class StartPage {
+export class FeatureStartComponent {
   private translation = inject(TranslationService);
   t(key: string) {
     return this.translation.translate(key);
