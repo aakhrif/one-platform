@@ -7,6 +7,7 @@
   transition: border-color 0.2s, box-shadow 0.2s;
   outline: none;
   background: #fff;
+  margin-bottom: 1.2rem; /* Abstand zu nächstem Control */
 }
 .ui-input--focused {
   border-color: #0085cd;
@@ -17,7 +18,7 @@
 }
 .ui-input__label {
   display: block;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem; /* Etwas mehr Abstand zum Input */
   font-weight: 600;
   color: #004272;
 }

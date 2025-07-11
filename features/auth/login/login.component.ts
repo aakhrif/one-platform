@@ -3,18 +3,21 @@ import { AuthService } from '@angular-workspace/auth/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RegisterComponent } from '../register/register.component';
+import { UiInputComponent } from '@shared/ui/input/input.component';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RegisterComponent, UiInputComponent],
 })
 export class LoginComponent {
   username = '';
   password = '';
   error = '';
+  showRegister = false;
 
   constructor(private auth: AuthService, private router: Router) {}
 
@@ -33,5 +36,9 @@ export class LoginComponent {
         this.error = 'Login fehlgeschlagen';
       },
     });
+  }
+
+  toggleRegister() {
+    this.showRegister = !this.showRegister;
   }
 }
