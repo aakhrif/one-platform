@@ -1,29 +1,43 @@
 .ui-input {
   width: 100%;
-  padding: 0.7rem 1rem;
-  border: 1.5px solid #cfd8dc;
-  border-radius: 0.5rem;
-  font-size: 1rem;
+  padding: 0.7rem 1.1rem;
+  border: 1.5px solid #765A87;
+  border-radius: 10px;
+  font-size: 1.08rem;
   transition: border-color 0.2s, box-shadow 0.2s;
   outline: none;
   background: #fff;
+  color: #1C2027;
   margin-bottom: 1.2rem; /* Abstand zu nächstem Control */
 }
-.ui-input--focused {
-  border-color: #0085cd;
-  box-shadow: 0 0 0 2px #0085cd33;
+.ui-input:focus, .ui-input--focused {
+  border-color: #765A87;
+  box-shadow: 0 0 0 2px #765A8733;
 }
 .ui-input--error {
-  border-color: #e53935;
+  border-color: #765A87;
+  box-shadow: 0 0 0 2px #765A87;
 }
 .ui-input__label {
   display: block;
   margin-bottom: 0.5rem; /* Etwas mehr Abstand zum Input */
   font-weight: 600;
-  color: #004272;
+  color: #765A87;
 }
 .ui-input__error {
-  color: #e53935;
+  color: #765A87;
   font-size: 0.92rem;
   margin-top: 0.2rem;
+}
+.ui-input__link, .ui-input__button {
+  color: #765A87;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.18s;
+}
+.ui-input__link:hover, .ui-input__button:hover {
+  color: #5e466c;
 }

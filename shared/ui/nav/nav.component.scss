@@ -1,0 +1,12 @@
+.nav__button, .nav__btn, .nav__toggle, .nav__lang-toggle {
+  background: #765A87 !important;
+  color: #fff !important;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 2px 16px 0 rgba(30,41,59,0.07);
+  transition: background 0.18s;
+}
+.nav__button:hover, .nav__btn:hover, .nav__toggle:hover, .nav__lang-toggle:hover {
+  background: #5e466c !important;
+}

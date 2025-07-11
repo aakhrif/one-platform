@@ -7,7 +7,8 @@
   min-height: 100vh;
   box-sizing: border-box;
   padding: 1.2rem 0.5rem 1.2rem 0.5rem;
-  background: linear-gradient(120deg, #e0e7ef 0%, #f8fafc 100%);
+  background: #F4DED4;
+  color: #1C2027;
   gap: 1.2rem;
 }
 
@@ -35,4 +36,46 @@
   max-width: 350px;
   min-width: 0;
   box-sizing: border-box;
+}
+
+.feature-start-mobile__cta {
+  background: #765A87;
+  color: #fff;
+  border-radius: 10px;
+  padding: 1.1rem 2rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  box-shadow: 0 2px 16px 0 rgba(30,41,59,0.07);
+  transition: background 0.18s;
+}
+
+.feature-start-mobile__cta:hover {
+  background: #5e466c;
+}
+
+.feature-start-mobile__headline, .feature-start-mobile__title, .feature-start-mobile__welcome, .welcome-text {
+  color: #F4DED4 !important;
+}
+
+.feature-start-mobile__cta, .feature-start-mobile__login, .feature-start-mobile__register, .feature-start-mobile__button {
+  background: #765A87 !important;
+  color: #fff !important;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  box-shadow: 0 2px 16px 0 rgba(30,41,59,0.07);
+  transition: background 0.18s;
+}
+.feature-start-mobile__cta:hover, .feature-start-mobile__login:hover, .feature-start-mobile__register:hover, .feature-start-mobile__button:hover {
+  background: #5e466c !important;
+}
+
+.feature-start-mobile__login-link, .feature-start-mobile__register-link, .feature-start-mobile__link {
+  color: #765A87 !important;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.18s;
+}
+.feature-start-mobile__login-link:hover, .feature-start-mobile__register-link:hover, .feature-start-mobile__link:hover {
+  color: #5e466c !important;
 }

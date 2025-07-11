@@ -6,7 +6,8 @@
   max-width: 1200px;
   margin: 8rem auto 3rem;
   margin-bottom: 6.5rem;
-  background: linear-gradient(120deg, #ede7f6 0%, #f3e8ff 100%);
+  background: #F4DED4;
+  color: #1C2027;
   border-radius: 1.5rem;
   box-shadow: 0 8px 32px rgba(103,58,183,0.10);
   overflow: hidden;
@@ -27,7 +28,7 @@
 }
 
 .feature-start__right {
-  background: linear-gradient(120deg, #8e24aa 0%, #512da8 100%);
+  background: #765A87;
   color: #fff;
   align-items: flex-start;
 }
@@ -37,6 +38,7 @@
   margin-bottom: 1.5rem;
   font-weight: 700;
   letter-spacing: 0.01em;
+  color: #F4DED4
 }
 
 .feature-start__right p {
@@ -44,6 +46,56 @@
   margin-bottom: 1.1rem;
   line-height: 1.6;
   opacity: 0.96;
+}
+
+.feature-start__cta {
+  background: #765A87;
+  color: #fff;
+  border-radius: 10px;
+  padding: 1.2rem 2.2rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 16px 0 rgba(30,41,59,0.07);
+  transition: background 0.18s;
+}
+
+.feature-start__cta:hover {
+  background: #5e466c;
+}
+
+.feature-start__headline, .feature-start__title, .feature-start__welcome, .welcome-text {
+  color: #F4DED4 !important;
+}
+
+.feature-start__cta, .feature-start__login, .feature-start__register, .feature-start__button {
+  background: #765A87 !important;
+  color: #fff !important;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 16px 0 rgba(30,41,59,0.07);
+  transition: background 0.18s;
+}
+.feature-start__cta:hover, .feature-start__login:hover, .feature-start__register:hover, .feature-start__button:hover {
+  background: #5e466c !important;
+}
+
+.feature-start__login-link, .feature-start__register-link, .feature-start__link {
+  color: #765A87 !important;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.18s;
+}
+.feature-start__login-link:hover, .feature-start__register-link:hover, .feature-start__link:hover {
+  color: #5e466c !important;
+}
+
+.chatbot-assistant {
+  border: 2.5px solid #F4DED4;
+  border-radius: 1.2rem;
+  padding: 1.2rem 1.5rem;
+  background: #fff;
+  box-shadow: 0 2px 16px 0 rgba(30,41,59,0.07);
 }
 
 @media (max-width: 900px) {

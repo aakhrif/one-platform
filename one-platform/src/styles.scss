@@ -1,8 +1,152 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 @import '@fortawesome/fontawesome-free/css/all.min.css';
 
+:root {
+  --color-primary: #1C2027; /* Dunkles Anthrazit */
+  --color-primary-hover: #232834;
+  --color-accent: #765A87; /* Lila */
+  --color-accent-hover: #5e466c;
+  --color-bg: #F4DED4; /* Zartes Rosé */
+  --color-surface: #fff;
+  --color-border: #e5e7eb;
+  --color-text: #1C2027;
+  --color-muted: #765A87;
+  --color-error: #e53935;
+  --radius: 10px;
+  --shadow: 0 2px 16px 0 rgba(30,41,59,0.07);
+}
+
 body {
-  font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.2rem; }
+
+section, .section {
+  margin-bottom: 2.5rem;
+}
+
+input, .ui-input {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+input:focus, .ui-input:focus, .ui-input--focused {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px #765A8733;
+}
+
+button, .btn {
+  background: #765A87;
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.6rem 1.2rem;
+  font-size: 1.08rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: background 0.18s, box-shadow 0.18s;
+}
+button:hover, .btn:hover {
+  background: #5e466c;
+}
+
+a, .link {
+  color: #765A87;
+  text-decoration: underline;
+  font-weight: 500;
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  transition: color 0.18s;
+}
+a:visited, .link:visited {
+  color: #765A87;
+}
+a:active, .link:active {
+  color: #5e466c;
+}
+a:hover, .link:hover {
+  color: #5e466c;
+  text-decoration: underline;
+}
+
+label, .ui-input__label {
+  color: var(--color-muted);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+  font-size: 1rem;
+}
+
+.ui-input__error {
+  color: var(--color-error);
+  font-size: 0.92rem;
+  margin-top: 0.2rem;
+}
+
+/* Mehr Weißraum für Formulare */
+.login-form, .register-form, form {
+  gap: 1.4rem;
+}
+
+.welcome-text, .feature-start__headline, .feature-start__title, .feature-start__welcome {
+  color: #F4DED4;
+}
+
+// .button-login, .button-register, .feature-start__login, .feature-start__register {
+//   background: #765A87;
+//   color: #fff;
+//   border-radius: var(--radius);
+//   font-weight: 600;
+//   font-size: 1.08rem;
+//   box-shadow: var(--shadow);
+//   transition: background 0.18s, color 0.18s;
+//   padding: 0.5rem 1.1rem;
+//   min-width: 110px;
+//   min-height: 38px;
+//   line-height: 1.1;
+//   display: inline-block;
+// }
+// .button-login:hover, .button-register:hover, .feature-start__login:hover, .feature-start__register:hover {
+//   background: #F4DED4;
+//   color: #765A87;
+// }
+
+.button-chatbot {
+  background: #F4DED4;
+  color: #765A87;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1.08rem;
+  box-shadow: var(--shadow);
+  transition: background 0.18s, color 0.18s;
+}
+.button-chatbot:hover {
+  background: #765A87;
+  color: #fff;
 }
