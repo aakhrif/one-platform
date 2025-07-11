@@ -2,11 +2,10 @@ import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { routeAnimations } from 'shared/animations/route-animations';
 import { TranslationService } from 'shared/services/translation.service';
-import { UiFooterComponent } from 'shared/ui/footer/footer.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  imports: [RouterModule, UiFooterComponent, CommonModule],
+  imports: [RouterModule, CommonModule],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
