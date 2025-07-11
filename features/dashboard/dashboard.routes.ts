@@ -1,10 +1,8 @@
 import { Routes } from '@angular/router';
-import { DashboardLayoutComponent } from '@shared/ui/layouts/dashboard-layout.component';
 
 export const dashboardRoutes: Routes = [
   {
     path: '',
-    component: DashboardLayoutComponent,
     children: [
       {
         path: 'child1',
