@@ -10,3 +10,20 @@
 .nav__button:hover, .nav__btn:hover, .nav__toggle:hover, .nav__lang-toggle:hover {
   background: #5e466c !important;
 }
+
+.nav-link, .nav a {
+  color: #765A87;
+  text-decoration: underline;
+  font-weight: 500;
+  padding: 0.15em 0.7em;
+  border-radius: 0.7em;
+  border: 2px solid transparent;
+  transition: color 0.18s, border-color 0.18s, background 0.18s, text-decoration 0.18s, box-shadow 0.18s, padding 0.18s;
+}
+.nav-link:hover, .nav a:hover {
+  color: #F4DED4;
+  border-color: #F4DED4;
+  background: rgba(244,222,212,0.08);
+  text-decoration: none;
+  box-shadow: 0 2px 8px 0 rgba(244,222,212,0.13);
+}

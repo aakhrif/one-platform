@@ -63,12 +63,21 @@
   color: #F4DED4;
 }
 .ui-footer a, .ui-footer .link {
-  color: #fff !important;
+  color: #fff;
   text-decoration: underline;
-  transition: color 0.18s;
+  font-weight: 500;
+  padding: 0.15em 0.7em;
+  border-radius: 0.7em;
+  border: 2px solid transparent;
+  transition: color 0.18s, border-color 0.18s, background 0.18s, text-decoration 0.18s, box-shadow 0.18s, padding 0.18s;
 }
 .ui-footer a:hover, .ui-footer .link:hover {
-  color: #F4DED4 !important;
+  color: #F4DED4;
+  border-color: #F4DED4;
+  background: rgba(244,222,212,0.08);
+  text-decoration: none;
+  box-shadow: 0 2px 8px 0 rgba(244,222,212,0.13);
+  padding: 0.15em 0.7em;
 }
 body, html {
   padding: 0;

@@ -10,3 +10,21 @@
 .mega-panel__button:hover, .mega-panel__btn:hover, .mega-panel__toggle:hover, .mega-panel__lang-toggle:hover {
   background: #5e466c !important;
 }
+.mega-panel__section a {
+  display: block;
+  padding: 0.35em 1.1em 0.35em 0.7em;
+  margin: 0;
+  border: none;
+  color: #765A87;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 0.5em;
+  transition: background 0.18s, color 0.18s;
+}
+.mega-panel__section a:hover {
+  background: rgba(244,222,212,0.13);
+  color: #5e466c;
+}
+.mega-panel__content .mega-panel__section a {
+  margin-left: 28.5rem;
+}

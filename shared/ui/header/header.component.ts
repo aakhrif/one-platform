@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
   template: `
     <header class="ui-header">
       <span class="ui-header__logo">
-        <a routerLink="/" style="text-decoration:none;color:inherit;cursor:pointer">🌐 0nePlatform</a>
+        <a routerLink="/" style="text-decoration:none;color:inherit;cursor:pointer">1 🌐 OnePlatform</a>
       </span>
       <button class="ui-header__burger" (click)="toggleNav()" aria-label="Menü öffnen/schließen">
         <span></span><span></span><span></span>
