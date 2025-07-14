@@ -1,24 +1,46 @@
-.modal-content {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-  padding: 2rem;
-  min-width: 320px;
-  min-height: 180px;
-  margin: 22rem auto 2rem auto;
-  position: relative;
-  z-index: 10;
-  animation: modalIn 0.5s cubic-bezier(.35,0,.25,1);
+/* Overlay für zentriertes Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0,0,0,0.12);
 }
 
-@keyframes modalIn {
-  from {
+.modal-content {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.96);
+  width: 60vw;
+  height: 60vh;
+  min-width: 320px;
+  min-height: 180px;
+  max-width: 800px;
+  max-height: 90vh;
+  background: white;
+  border-radius: 1.2rem;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.18);
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10010;
+  animation: modalFadeIn 0.38s cubic-bezier(.22,1,.36,1);
+}
+
+@keyframes modalFadeIn {
+  0% {
     opacity: 0;
-    transform: scale(0.85) translateY(40px);
+    transform: translate(-50%, -60%) scale(0.92);
   }
-  to {
+  80% {
     opacity: 1;
-    transform: scale(1) translateY(0);
+    transform: translate(-50%, -48%) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 

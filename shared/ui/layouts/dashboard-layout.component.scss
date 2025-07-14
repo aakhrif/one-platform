@@ -38,28 +38,4 @@ nav a.active, nav a:hover {
 }
 
 // Modal overlay for child routes
-:host ::ng-deep .modal-content {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-  padding: 2rem;
-  min-width: 320px;
-  min-height: 180px;
-  z-index: 100;
-  animation: modalIn 0.5s cubic-bezier(.35,0,.25,1);
-}
-
-@keyframes modalIn {
-  from {
-    opacity: 0;
-    transform: scale(0.85) translate(-50%, -40%);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translate(-50%, -50%);
-  }
-}
+// (entfernt, Positionierung und Animation gehören in die Modal-Komponente)
