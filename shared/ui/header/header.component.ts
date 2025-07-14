@@ -2,9 +2,8 @@ import { Component, HostListener, OnDestroy, inject } from '@angular/core';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { LanguageSwitcherComponent } from '../language-switcher/language-switcher.component';
 import { SearchComponent } from '../search/search.component';
-import { DeviceService } from '../device.service';
 import { TranslationService } from 'shared/services/translation.service';
-import { map, Subject, takeUntil } from 'rxjs';
+import { map, Subject } from 'rxjs';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -66,11 +65,7 @@ export class HeaderComponent implements OnDestroy {
   private destroy$ = new Subject<void>();
   private translation = inject(TranslationService);
 
-  constructor(private device: DeviceService) {
-    this.device.isMobile$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(val => this.isMobile = val);
-  }
+  // DeviceService-Initialisierung entfernt. isMobile wird jetzt von außen gesetzt.
 
   ngOnDestroy() {
     this.destroy$.next();
@@ -85,16 +80,10 @@ export class HeaderComponent implements OnDestroy {
     this.panelType = type;
   }
 
-  t$ = (key: string) => {
-    console.log('key', key);
-    return this.translation.getLanguage().pipe(
-      map(() => {
-        const value = this.translation.translate(key);
-        console.log('value ', value)
-        return value;
-      })
-    )
-  }
+  t$ = (key: string) =>
+    this.translation.getLanguage().pipe(
+      map(() => this.translation.translate(key))
+    );
 
   logDocsClick(event: Event) {
     // intentionally left blank

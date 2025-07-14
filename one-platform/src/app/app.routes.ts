@@ -13,10 +13,7 @@ export const appRoutes: Route[] = [
     children: [
       {
         path: '',
-        loadComponent: () =>
-          window.innerWidth <= 900
-            ? import('shared/ui/layouts/feature-start-mobile.component').then(m => m.FeatureStartMobileComponent)
-            : import('shared/ui/layouts/feature-start.component').then(m => m.FeatureStartComponent),
+        loadComponent: () => import('shared/ui/feature-start/feature-start-shell.component').then(m => m.FeatureStartShellComponent),
         pathMatch: 'full',
       },
       { path: 'login', component: LoginComponent },

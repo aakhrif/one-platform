@@ -16,6 +16,11 @@ export class DeviceService implements OnDestroy {
 
   constructor(private ngZone: NgZone) {}
 
+  setDeviceType(windowWidth: number) {
+    const isMobile = windowWidth <= this.mobileBreakpoint;
+    this.isMobileSubject.next(isMobile);
+  }
+
   ngOnDestroy() {
     this.resizeSub.unsubscribe();
   }

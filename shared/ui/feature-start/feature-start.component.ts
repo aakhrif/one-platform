@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { LoginComponent } from '@features/auth/login/login.component';
-import { ChatAssistantComponent } from '@features/chat-assistant/chat-assistant.component';
+import { LoginComponent } from '../../../features/auth/login/login.component';
+import { ChatAssistantComponent } from '../../../features/chat-assistant/chat-assistant.component';
 import { TranslationService } from '../../services/translation.service';
 import { map } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
