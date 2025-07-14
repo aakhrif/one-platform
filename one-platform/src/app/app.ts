@@ -21,8 +21,7 @@ export class App {
 
   constructor() {
     this.device.setDeviceType(window.innerWidth);
-    this.translation.getLanguage().subscribe(() => {
-      this.translationsLoaded = true;
-    });
+    // translationsLoaded kann jetzt direkt auf true gesetzt werden, da Signals synchron sind
+    this.translationsLoaded = true;
   }
 }

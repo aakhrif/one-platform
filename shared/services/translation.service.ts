@@ -1,42 +1,40 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { signal, Signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, tap } from 'rxjs/operators';
 
 type TranslationDict = { [key: string]: string | TranslationDict };
 
 @Injectable({ providedIn: 'root' })
 export class TranslationService {
-  private lang$ = new BehaviorSubject<string>('de');
+  lang = signal<string>('de');
   private translations: TranslationDict = {};
 
   constructor(private http: HttpClient) {
-    this.loadTranslations('de').subscribe();
+    this.loadTranslations('de');
   }
 
   setLanguage(lang: string): void {
-    this.lang$.next(lang);
-    this.loadTranslations(lang).subscribe();
+    this.lang.set(lang);
+    this.loadTranslations(lang);
   }
 
-  getLanguage(): Observable<string> {
-    return this.lang$.asObservable();
+  getLanguage(): Signal<string> {
+    return this.lang;
   }
 
-  private loadTranslations(lang: string): Observable<TranslationDict> {
+  private loadTranslations(lang: string) {
     // Korrigierter Pfad: one-platform/src/assets/i18n
     const url = `/assets/i18n/${lang}.json`;
-    return this.http.get<TranslationDict>(url).pipe(
-      tap(translations => {
+    return this.http.get<TranslationDict>(url).subscribe({
+      next: (translations) => {
         this.translations = translations;
-        this.lang$.next(this.lang$.value);
-      }),
-      catchError(() => {
+        this.lang.set(lang);
+      },
+      error: () => {
         this.translations = {};
-        this.lang$.next(this.lang$.value);
-        return of({});
-      })
-    );
+        this.lang.set(lang);
+      }
+    });
   }
 
   translate(key: string): string {

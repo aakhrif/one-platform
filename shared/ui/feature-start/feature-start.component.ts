@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { LoginComponent } from '../../../features/auth/login/login.component';
 import { ChatAssistantComponent } from '../../../features/chat-assistant/chat-assistant.component';
 import { TranslationService } from '../../services/translation.service';
-import { map } from 'rxjs';
+// import { map } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
@@ -13,10 +13,10 @@ import { AsyncPipe } from '@angular/common';
         <app-login></app-login>
       </div>
       <div class="feature-start__right">
-        <h1>{{ t$('start.headline') | async }}</h1>
-        <p>{{ t$('start.desc1') | async }}</p>
-        <p>{{ t$('start.desc2') | async }}</p>
-        <p>{{ t$('start.desc3') | async }}</p>
+        <h1>{{ t$('start.headline')() }}</h1>
+        <p>{{ t$('start.desc1')() }}</p>
+        <p>{{ t$('start.desc2')() }}</p>
+        <p>{{ t$('start.desc3')() }}</p>
       </div>
       <feature-chat-assistant></feature-chat-assistant>
     </div>
@@ -29,11 +29,7 @@ export class FeatureStartComponent {
   private translation = inject(TranslationService);
 
   t$ = (key: string) => {
-    return this.translation.getLanguage().pipe(
-      map(() => {
-        const value = this.translation.translate(key);
-        return value;
-      })
-    );
+    // Signal-basiert: gibt ein Signal zurück, das sich bei Sprachwechsel aktualisiert
+    return () => this.translation.translate(key);
   };
 }
