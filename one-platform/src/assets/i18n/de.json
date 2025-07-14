@@ -1,0 +1,21 @@
+{
+  "header.products": "Produkte",
+  "header.docs": "Dokumentation",
+  "header.contact": "Kontakt",
+  "products.normen": "Normen",
+  "products.iso": "ISO",
+  "products.transformation": "Transformation",
+  "products.prozesse": "Prozesse",
+  "docs.gettingStarted": "Erste Schritte",
+  "docs.apiReference": "API Referenz",
+  "contact.form": "Kontaktformular",
+  "contact.support": "Support",
+  "start.headline": "Willkommen zur Plattform",
+  "start.desc1": "Erleben Sie modernes UI/UX, modulare Architektur und eine intuitive Benutzeroberfläche.",
+  "start.desc2": "Diese Plattform demonstriert DDD, Feature-Slices und wiederverwendbare Komponenten.",
+  "start.desc3": "Starten Sie mit Ihrem Login und entdecken Sie das Dashboard!",
+  "footer.impressum": "Impressum",
+  "footer.datenschutz": "Datenschutz",
+  "footer.impressumText": "Community Projekt, nur zu Demo-Zwecken.",
+  "datenschutzText": "Derzeit werden keine Daten erhoben."
+}

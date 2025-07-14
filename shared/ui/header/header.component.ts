@@ -1,10 +1,10 @@
 import { Component, HostListener, OnDestroy, inject } from '@angular/core';
-import { NgIf } from '@angular/common';
+import { AsyncPipe, NgIf } from '@angular/common';
 import { LanguageSwitcherComponent } from '../language-switcher/language-switcher.component';
 import { SearchComponent } from '../search/search.component';
 import { DeviceService } from '../device.service';
 import { TranslationService } from 'shared/services/translation.service';
-import { Subject, takeUntil } from 'rxjs';
+import { map, Subject, takeUntil } from 'rxjs';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -19,9 +19,9 @@ import { RouterModule } from '@angular/router';
       </button>
       <div class="ui-header__nav-wrap" [class.open]="navOpen">
         <nav class="ui-header__nav">
-          <a routerLink="/products" routerLinkActive="active" (mouseenter)="showPanel('products')">{{ t('header.products') }}</a>
-          <a routerLink="/docs" routerLinkActive="active" (mouseenter)="showPanel('docs')">{{ t('header.docs') }}</a>
-          <a routerLink="/contact" routerLinkActive="active" (mouseenter)="showPanel('contact')">{{ t('header.contact') }}</a>
+          <a routerLink="/products" routerLinkActive="active" (mouseenter)="showPanel('products')">{{ t$('header.products') | async }}</a>
+          <a routerLink="/docs" routerLinkActive="active" (mouseenter)="showPanel('docs')">{{ t$('header.docs') | async }}</a>
+          <a routerLink="/contact" routerLinkActive="active" (mouseenter)="showPanel('contact')">{{ t$('header.contact') | async }}</a>
         </nav>
         <div class="mega-panel" *ngIf="panelType"
           (mouseenter)="panelType = panelType"
@@ -29,15 +29,15 @@ import { RouterModule } from '@angular/router';
           <div class="mega-panel__content">
             <ng-container *ngIf="panelType === 'products'">
               <div class="mega-panel__section">
-                <a routerLink="/products/normen">{{ t('products.normen') }}</a>
-                <a routerLink="/products/iso">{{ t('products.iso') }}</a>
-                <a routerLink="/products/transformation">{{ t('products.transformation') }}</a>
-                <a routerLink="/products/prozesse">{{ t('products.prozesse') }}</a>
+                <a routerLink="/products/normen">{{ t$('products.normen') | async }}</a>
+                <a routerLink="/products/iso">{{ t$('products.iso') | async }}</a>
+                <a routerLink="/products/transformation">{{ t$('products.transformation') | async }}</a>
+                <a routerLink="/products/prozesse">{{ t$('products.prozesse') | async }}</a>
               </div>
             </ng-container>
             <ng-container *ngIf="panelType === 'docs'">
               <div class="mega-panel__section">
-                <a routerLink="/docs/getting-started" style="cursor:pointer" (click)="logDocsClick($event)">Getting Started</a>
+                <a routerLink="/docs" style="cursor:pointer" (click)="logDocsClick($event)">Getting Started</a>
                 <a routerLink="/docs/api">API Reference</a>
               </div>
             </ng-container>
@@ -57,7 +57,7 @@ import { RouterModule } from '@angular/router';
   `,
   styleUrls: ['./header.component.scss'],
   standalone: true,
-  imports: [NgIf, LanguageSwitcherComponent, SearchComponent, RouterModule],
+  imports: [NgIf, LanguageSwitcherComponent, SearchComponent, RouterModule, AsyncPipe],
 })
 export class HeaderComponent implements OnDestroy {
   panelType: 'products' | 'docs' | 'contact' | '' = '';
@@ -85,12 +85,19 @@ export class HeaderComponent implements OnDestroy {
     this.panelType = type;
   }
 
-  t(key: string) {
-    return this.translation.translate(key);
+  t$ = (key: string) => {
+    console.log('key', key);
+    return this.translation.getLanguage().pipe(
+      map(() => {
+        const value = this.translation.translate(key);
+        console.log('value ', value)
+        return value;
+      })
+    )
   }
 
   logDocsClick(event: Event) {
-    console.log('Getting Started link clicked', event);
+    // intentionally left blank
   }
 
   @HostListener('document:click', ['$event'])

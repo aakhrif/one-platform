@@ -3,15 +3,15 @@ import { Injectable } from '@angular/core';
 @Injectable({ providedIn: 'root' })
 export class LoggingService {
   log(message: string, ...optionalParams: unknown[]) {
-    console.log('[LOG]', message, ...optionalParams);
+    // Logging entfernt
   }
 
   warn(message: string, ...optionalParams: unknown[]) {
-    console.warn('[WARN]', message, ...optionalParams);
+    // Logging entfernt
   }
 
   error(message: string, ...optionalParams: unknown[]) {
-    console.error('[ERROR]', message, ...optionalParams);
+    // Logging entfernt
   }
 
   info(message: string, ...optionalParams: unknown[]) {

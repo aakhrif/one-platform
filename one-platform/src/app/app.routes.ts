@@ -27,7 +27,7 @@ export const appRoutes: Route[] = [
     path: 'docs',
     component: StartLayoutComponent,
     children: [
-      { path: 'getting-started', loadComponent: () => import('pages/docs/docs-getting-started.page').then(m => m.DocsGettingStartedPage) },
+      { path: '', loadComponent: () => import('pages/docs/docs-getting-started.page').then(m => m.DocsGettingStartedPage) },
       // weitere Doku-Seiten hier
     ]
   },

@@ -1,0 +1,21 @@
+{
+  "header.products": "Products",
+  "header.docs": "Documentations",
+  "header.contact": "Contact",
+  "products.normen": "Norms",
+  "products.iso": "ISO",
+  "products.transformation": "Transformation",
+  "products.prozesse": "Processes",
+  "docs.gettingStarted": "Getting Started",
+  "docs.apiReference": "API Reference",
+  "contact.form": "Contact Form",
+  "contact.support": "Support",
+  "start.headline": "Welcome to the Platform",
+  "start.desc1": "Experience modern UI/UX, modular architecture, and an intuitive user interface.",
+  "start.desc2": "This platform demonstrates DDD, feature slices, and reusable components.",
+  "start.desc3": "Start with your login and discover the dashboard!",
+  "footer.impressum": "Impress",
+  "footer.datenschutz": "Data privacy",
+  "footer.impressumText": "Community driven project, Demo purposes.",
+  "footer.datenschutzText": "No data is currently collected."
+}

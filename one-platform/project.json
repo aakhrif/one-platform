@@ -16,11 +16,16 @@
         "tsConfig": "one-platform/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-          "one-platform/src/assets",
+          {
+            "glob": "**/*",
+            "input": "one-platform/src/assets",
+            "output": "assets"
+          },
           "one-platform/src/favicon.ico",
           {
             "glob": "**/*",
-            "input": "one-platform/public"
+            "input": "one-platform/public",
+            "output": "assets"
           }
         ],
         "styles": ["one-platform/src/styles.scss"]

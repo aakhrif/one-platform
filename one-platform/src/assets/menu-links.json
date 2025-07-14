@@ -1,0 +1,31 @@
+[
+  {
+    "label": "Products",
+    "key": "products",
+    "route": "/products",
+    "children": [
+      { "label": "Normen", "route": "/products/normen" },
+      { "label": "ISO", "route": "/products/iso" },
+      { "label": "Transformation", "route": "/products/transformation" },
+      { "label": "Prozesse", "route": "/products/prozesse" }
+    ]
+  },
+  {
+    "label": "Documentations",
+    "key": "docs",
+    "route": "/docs",
+    "children": [
+      { "label": "Getting Started", "route": "/docs" },
+      { "label": "API Reference", "route": "/docs/api" }
+    ]
+  },
+  {
+    "label": "Contact",
+    "key": "contact",
+    "route": "/contact",
+    "children": [
+      { "label": "Contact Form", "route": "/contact/form" },
+      { "label": "Support", "route": "/contact/support" }
+    ]
+  }
+]

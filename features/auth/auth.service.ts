@@ -17,11 +17,10 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(username: string, password: string): Observable<User> {
-    console.log('username', username);
-    console.log('username', password);
+    // Debug logs entfernt
     return this.http.get<User[]>(this.usersUrl).pipe(
       map(users => {
-        console.log(users);
+        // Debug logs entfernt
         const user = users.find(u => u.username === username && u.password === password);
         if (!user) {
           throw new Error('Invalid credentials');

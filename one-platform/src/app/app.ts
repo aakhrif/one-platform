@@ -15,8 +15,14 @@ export class App {
 
   title = "OnePlatform";
   private translation = inject(TranslationService);
+  translationsLoaded: boolean = false;
 
   constructor() {
     this.translation.setLanguage('de');
+    this.translation.getLanguage().subscribe(() => {
+      this.translationsLoaded = true;
+      // Debug: Zeige die geladenen Übersetzungen im Log an
+      // Debug logs entfernt
+    });
   }
 }
