@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+@use '../../shared/styles/_theme-ngrx.scss' as *;
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 @import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 :root {
   --color-primary: #1C2027; /* Dunkles Anthrazit */
@@ -17,6 +19,7 @@
   --radius: 10px;
   --shadow: 0 2px 16px 0 rgba(30,41,59,0.07);
 }
+
 
 body {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
@@ -58,20 +61,14 @@ input:focus, .ui-input:focus, .ui-input--focused {
   box-shadow: 0 0 0 2px #765A8733;
 }
 
-button, .btn {
-  background: #765A87;
-  color: #fff;
-  border: none;
-  border-radius: var(--radius);
-  padding: 0.6rem 1.2rem;
-  font-size: 1.08rem;
-  font-weight: 500;
-  cursor: pointer;
-  box-shadow: var(--shadow);
-  transition: background 0.18s, box-shadow 0.18s;
+
+button, .btn, .button {
+  @extend .button;
 }
-button:hover, .btn:hover {
-  background: #5e466c;
+
+button:hover, .btn:hover, .button:hover {
+  background: $primary-light;
+  box-shadow: 0 4px 18px rgba(81,45,168,0.13);
 }
 
 a, .link {
@@ -138,15 +135,23 @@ label, .ui-input__label {
 // }
 
 .button-chatbot {
-  background: #F4DED4;
-  color: #765A87;
-  border-radius: var(--radius);
+  background: $accent-light;
+  color: $accent-dark;
+  border-radius: 0.5rem;
   font-weight: 600;
   font-size: 1.08rem;
-  box-shadow: var(--shadow);
+  box-shadow: $shadow;
   transition: background 0.18s, color 0.18s;
 }
 .button-chatbot:hover {
-  background: #765A87;
-  color: #fff;
+  background: $accent;
+  color: $text-light;
+}
+// Panels und Header auf Theme-Styles umstellen
+.panel {
+  @extend .panel;
+}
+
+.header {
+  @extend .header;
 }
