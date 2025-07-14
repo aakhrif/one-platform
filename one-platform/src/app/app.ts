@@ -16,10 +16,8 @@ export class App {
 
   title = "OnePlatform";
 
-  private device = inject(DeviceService);
-
   constructor() {
     inject(TranslationService);
-    this.device.setDeviceType(window.innerWidth);
+    inject(DeviceService)
   }
 }
