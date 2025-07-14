@@ -1,24 +1,23 @@
-import { Injectable, NgZone, OnDestroy } from '@angular/core';
-import { BehaviorSubject, fromEvent, Observable } from 'rxjs';
-import { map, distinctUntilChanged } from 'rxjs/operators';
+import { Injectable, NgZone, OnDestroy, signal } from '@angular/core';
+import { fromEvent } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class DeviceService implements OnDestroy {
   private mobileBreakpoint = 900;
-  private isMobileSubject = new BehaviorSubject<boolean>(window.innerWidth <= this.mobileBreakpoint);
-  isMobile$: Observable<boolean> = this.isMobileSubject.asObservable();
+  isMobile = signal<boolean>(window.innerWidth <= this.mobileBreakpoint);
   private resizeSub = fromEvent(window, 'resize')
-    .pipe(
-      map(() => window.innerWidth <= this.mobileBreakpoint),
-      distinctUntilChanged()
-    )
-    .subscribe(val => this.ngZone.run(() => this.isMobileSubject.next(val)));
+    .subscribe(() => {
+      this.ngZone.run(() => {
+        const isMobile = window.innerWidth <= this.mobileBreakpoint;
+        this.isMobile.set(isMobile);
+      });
+    });
 
   constructor(private ngZone: NgZone) {}
 
   setDeviceType(windowWidth: number) {
     const isMobile = windowWidth <= this.mobileBreakpoint;
-    this.isMobileSubject.next(isMobile);
+    this.isMobile.set(isMobile);
   }
 
   ngOnDestroy() {

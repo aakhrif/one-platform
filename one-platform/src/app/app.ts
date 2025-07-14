@@ -15,13 +15,11 @@ import { CommonModule } from '@angular/common';
 export class App {
 
   title = "OnePlatform";
-  private translation = inject(TranslationService);
+
   private device = inject(DeviceService);
-  translationsLoaded: boolean = false;
 
   constructor() {
+    inject(TranslationService);
     this.device.setDeviceType(window.innerWidth);
-    // translationsLoaded kann jetzt direkt auf true gesetzt werden, da Signals synchron sind
-    this.translationsLoaded = true;
   }
 }

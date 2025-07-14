@@ -1,20 +1,18 @@
 import { Component, inject } from '@angular/core';
-import { AsyncPipe, NgIf } from '@angular/common';
 import { DeviceService } from '../../services/device.service';
-import { FeatureStartMobileComponent } from './feature-start-mobile.component';
+import { FeatureStartMobileComponent } from '../feature-start/feature-start-mobile.component';
 import { FeatureStartComponent } from './feature-start.component';
 
 @Component({
   selector: 'feature-start-shell',
   standalone: true,
-  imports: [NgIf, AsyncPipe, FeatureStartMobileComponent, FeatureStartComponent],
+  imports: [FeatureStartMobileComponent, FeatureStartComponent],
   template: `
-    <ng-container *ngIf="device.isMobile$ | async; else desktop">
+    @if (device.isMobile()) {
       <feature-start-mobile></feature-start-mobile>
-    </ng-container>
-    <ng-template #desktop>
+    } @else {
       <feature-start></feature-start>
-    </ng-template>
+    }
   `
 })
 export class FeatureStartShellComponent {
