@@ -11,7 +11,7 @@ export class LanguageSwitcherComponent {
   private translation = inject(TranslationService);
   lang: 'de' | 'en' = 'de';
 
-  setLang(lang: 'de' | 'en') {
+  setLang(lang: 'de' | 'en'): void {
     this.lang = lang;
     this.translation.setLanguage(lang);
   }

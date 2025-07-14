@@ -14,12 +14,12 @@ export class TranslationService {
     this.loadTranslations('de').subscribe();
   }
 
-  setLanguage(lang: string) {
+  setLanguage(lang: string): void {
     this.lang$.next(lang);
     this.loadTranslations(lang).subscribe();
   }
 
-  getLanguage() {
+  getLanguage(): Observable<string> {
     return this.lang$.asObservable();
   }
 
