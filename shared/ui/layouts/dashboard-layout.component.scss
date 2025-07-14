@@ -39,3 +39,23 @@ nav a.active, nav a:hover {
 
 // Modal overlay for child routes
 // (entfernt, Positionierung und Animation gehören in die Modal-Komponente)
+
+.dashboard-bg.modal-open {
+  filter: none;
+  pointer-events: auto;
+  user-select: auto;
+}
+
+.dashboard-bg.modal-open > :not(.modal-overlay) {
+  filter: blur(2px) grayscale(0.2) brightness(0.8);
+  pointer-events: none;
+  user-select: none;
+  transition: filter 0.2s;
+}
+
+.modal-open .modal-overlay,
+.modal-open .modal-content {
+  filter: none !important;
+  pointer-events: auto !important;
+  user-select: auto !important;
+}

@@ -3,14 +3,16 @@
   position: fixed;
   inset: 0;
   z-index: 10000;
-  background: rgba(0,0,0,0.12);
+  background: rgba(30, 32, 38, 0.38); /* dunkler, moderner Overlay */
+  backdrop-filter: blur(1.5px);
+  transition: background 0.25s;
 }
 
 .modal-content {
   position: fixed;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%) scale(0.96);
+  transform: translate(-50%, -50%) scale(1);
   width: 60vw;
   height: 60vh;
   min-width: 320px;
@@ -26,17 +28,17 @@
   justify-content: center;
   align-items: center;
   z-index: 10010;
-  animation: modalFadeIn 0.38s cubic-bezier(.22,1,.36,1);
+  animation: modalPopIn 0.38s cubic-bezier(.32,1.56,.64,1);
 }
 
-@keyframes modalFadeIn {
+@keyframes modalPopIn {
   0% {
     opacity: 0;
-    transform: translate(-50%, -60%) scale(0.92);
+    transform: translate(-50%, -50%) scale(0.7);
   }
   80% {
     opacity: 1;
-    transform: translate(-50%, -48%) scale(1.01);
+    transform: translate(-50%, -50%) scale(1.03);
   }
   100% {
     opacity: 1;
