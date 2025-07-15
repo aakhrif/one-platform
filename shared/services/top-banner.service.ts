@@ -8,13 +8,4 @@ export class TopBannerService {
   constructor(@Inject(APP_CONFIG) private config: AppConfig) {
     this.show = signal<boolean>(this.config.showBanner);
   }
-
-  open(text?: string) {
-    // Banner-Text kommt jetzt immer aus i18n, daher keine set-Möglichkeit mehr
-    this.show.set(true);
-  }
-
-  close() {
-    this.show.set(false);
-  }
 }

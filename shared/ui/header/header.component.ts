@@ -25,7 +25,6 @@ export class HeaderComponent implements OnDestroy {
   showBanner = this.topBanner.show;
 
   t$ = (key: string) => this.translationService.translate(key);
-  // Computed property für dynamische CSS-Klasse
   headerClass = computed(() => this.showBanner() ? 'with-banner' : '');
 
   ngOnDestroy() {
@@ -39,10 +38,6 @@ export class HeaderComponent implements OnDestroy {
 
   showPanel(type: PanelType) {
     this.panelType = type;
-  }
-
-  logDocsClick(event: Event) {
-    // intentionally left blank
   }
 
   @HostListener('document:click', ['$event'])

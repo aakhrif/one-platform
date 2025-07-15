@@ -1,4 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,6 +14,15 @@ import { DecimalPipe } from '@angular/common';
   imports: [MatCardModule, MatButtonModule, MatIconModule, DecimalPipe],
 })
 export class ProductCardComponent {
+  private iconRegistry = inject(MatIconRegistry);
+  private sanitizer = inject(DomSanitizer);
+
+  constructor() {
+    this.iconRegistry.addSvgIcon(
+      'check_circle',
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/icons/check_circle.svg')
+    );
+  }
   @Input() name!: string;
   @Input() description!: string;
   @Input() features: string[] = [];

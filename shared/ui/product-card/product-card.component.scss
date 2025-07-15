@@ -27,6 +27,11 @@
   }
 }
 
+.product-card .mat-icon {
+  width: unset !important;
+  height: unset !important;
+}
+
 .product-card__icon {
   font-size: 2.5rem;
   color: #512da8;
