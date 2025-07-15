@@ -89,4 +89,33 @@ curl http://localhost:4200/assets/users.json
 - For more info, see the [Nx documentation](https://nx.dev) or run `npx nx --help`.
 
 ## To Do
-- Chat assistant
+
+---
+
+## Running Tests
+
+### Unit Tests
+Run all unit tests for the main app:
+
+```sh
+npx nx test one-platform
+```
+
+### End-to-End (e2e) Tests with Playwright
+Start all Playwright e2e tests (inkl. automatischem Dev-Server-Start):
+
+```sh
+npx nx run angular-workspace:playwright
+```
+
+Oder direkt mit Playwright (falls du den Dev-Server manuell startest):
+
+```sh
+npx playwright test
+```
+
+Nach dem Lauf kannst du den HTML-Report anzeigen mit:
+
+```sh
+npx playwright show-report
+```

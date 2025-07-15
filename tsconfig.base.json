@@ -15,20 +15,22 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@angular-workspace/auth/*": ["features/auth/*"],
+      "@angular-workspace/dashboard/*": ["features/dashboard/*"],
       "@angular-workspace/shared/button": ["shared/src/index.ts"],
       "@angular-workspace/shared/ui": ["shared/src/index.ts"],
       "@angular-workspace/ui": ["ui/src/index.ts"],
-      "@angular-workspace/auth/*": ["features/auth/*"],
-      "@angular-workspace/dashboard/*": ["features/dashboard/*"],
       "@features/*": ["features/*"],
-      "@shared/*": ["shared/*"],
       "@one-platform/*": ["one-platform/*"],
-      "@shared/ui/layouts/*": ["shared/ui/layouts/*"],
-      "@sections/*": ["sections/*"],
       "@pages/*": ["pages/*"],
-      "@shared/language-switcher": ["shared/ui/language-switcher/language-switcher.component.ts"],
+      "@sections/*": ["sections/*"],
+      "@shared/*": ["shared/*"],
+      "@shared/language-switcher": [
+        "shared/ui/language-switcher/language-switcher.component.ts"
+      ],
       "@shared/language-switcher/*": ["shared/ui/language-switcher/*"],
-      "@shared/types/interfaces": ["shared/types/interfaces/index.ts"]
+      "@shared/types/interfaces": ["shared/types/interfaces/index.ts"],
+      "@shared/ui/layouts/*": ["shared/ui/layouts/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

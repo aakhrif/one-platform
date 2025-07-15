@@ -93,5 +93,12 @@
         "spa": true
       }
     }
+    ,
+    "playwright": {
+      "executor": "@nx/playwright:playwright",
+      "options": {
+        "config": "one-platform/playwright.config.ts"
+      }
+    }
   }
 }
