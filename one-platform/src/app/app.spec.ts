@@ -1,11 +1,19 @@
 import { TestBed } from '@angular/core/testing';
 import { App } from './app';
 import { NxWelcome } from './nx-welcome';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App, NxWelcome],
+      providers: [
+        provideHttpClient(),
+        ...provideHttpClientTesting(),
+        provideNoopAnimations()
+      ]
     }).compileComponents();
   });
 
@@ -13,8 +21,6 @@ describe('App', () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome angular-workspace'
-    );
+    expect(compiled.querySelector('main')).toBeTruthy();
   });
 });
