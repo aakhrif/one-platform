@@ -1,0 +1,21 @@
+.product-section {
+  width: 100%;
+  margin: 4rem auto 2rem auto;
+  padding: 0 2rem;
+  max-width: 1400px;
+}
+
+.product-section__headline {
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: #512da8;
+  text-align: center;
+}
+
+.product-section__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.2rem;
+}

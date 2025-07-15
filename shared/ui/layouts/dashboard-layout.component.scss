@@ -22,7 +22,8 @@ nav a {
   transition: background 0.2s;
 }
 nav a.active, nav a:hover {
-  background: #dbeafe;
+  background: #f3f4f6; // sehr helles Grau
+  color: #2563eb;
 }
 .logout-btn {
   background: none;

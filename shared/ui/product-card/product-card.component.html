@@ -1,0 +1,22 @@
+<mat-card class="product-card" [class.product-card--recommended]="recommended">
+  <mat-card-header>
+    <mat-icon class="product-card__icon">{{ icon }}</mat-icon>
+    <mat-card-title>{{ name }}</mat-card-title>
+    <mat-card-subtitle *ngIf="recommended" class="product-card__recommended">Empfohlen</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="product-card__desc">{{ description }}</div>
+    <ul class="product-card__features">
+      <li *ngFor="let f of features">
+        <mat-icon color="primary" class="product-card__feature-icon">check_circle</mat-icon>
+        {{ f }}
+      </li>
+    </ul>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="product-card__price">
+      <span class="product-card__price-value">{{ price | number:'1.2-2' }} {{ currency }}</span>
+    </div>
+    <button mat-raised-button color="primary">Jetzt kaufen</button>
+  </mat-card-actions>
+</mat-card>

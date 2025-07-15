@@ -1,0 +1,14 @@
+<section class="product-section">
+  <h2 class="product-section__headline">Unsere Services</h2>
+  <div class="product-section__cards">
+    <ui-product-card *ngFor="let p of products"
+      [name]="p.name"
+      [description]="p.description"
+      [features]="p.features"
+      [price]="p.price"
+      [currency]="p.currency"
+      [icon]="p.icon"
+      [recommended]="p.recommended">
+    </ui-product-card>
+  </div>
+</section>
