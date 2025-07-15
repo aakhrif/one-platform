@@ -1,0 +1,46 @@
+[
+  {
+    "id": "basic",
+    "name": "Basic",
+    "description": "Das Einsteigerpaket für Einzelanwender und kleine Teams. Enthält alle Kernfunktionen für den schnellen Start.",
+    "features": [
+      "1 Benutzer",
+      "Basis-Support",
+      "Zugriff auf Standard-Module"
+    ],
+    "price": 9.99,
+    "currency": "EUR",
+    "icon": "star_border",
+    "recommended": false
+  },
+  {
+    "id": "professional",
+    "name": "Professional",
+    "description": "Das Rundum-sorglos-Paket für wachsende Unternehmen. Mehr Nutzer, mehr Support, mehr Möglichkeiten.",
+    "features": [
+      "Bis zu 10 Benutzer",
+      "Priorisierter Support",
+      "Erweiterte Module",
+      "Team-Management"
+    ],
+    "price": 29.99,
+    "currency": "EUR",
+    "icon": "star_half",
+    "recommended": true
+  },
+  {
+    "id": "premium",
+    "name": "Premium",
+    "description": "Maximale Leistung und Flexibilität für große Teams und Unternehmen. Alle Features, individueller Support.",
+    "features": [
+      "Unbegrenzte Benutzer",
+      "Premium-Support 24/7",
+      "Alle Module & Integrationen",
+      "Individuelle Anpassungen"
+    ],
+    "price": 79.99,
+    "currency": "EUR",
+    "icon": "star",
+    "recommended": false
+  }
+]

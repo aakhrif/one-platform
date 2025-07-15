@@ -1,9 +1,9 @@
 import { Component, HostListener, OnDestroy, inject } from '@angular/core';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { LanguageSwitcherComponent } from '../language-switcher/language-switcher.component';
 import { SearchComponent } from '../search/search.component';
 import { TranslationService } from 'shared/services/translation.service';
-import { map, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -21,6 +21,7 @@ import { RouterModule } from '@angular/router';
           <a routerLink="/products" routerLinkActive="active" (mouseenter)="showPanel('products')">{{ t$('header.products')() }}</a>
           <a routerLink="/docs" routerLinkActive="active" (mouseenter)="showPanel('docs')">{{ t$('header.docs')() }}</a>
           <a routerLink="/contact" routerLinkActive="active" (mouseenter)="showPanel('contact')">{{ t$('header.contact')() }}</a>
+          <a routerLink="/member" routerLinkActive="active">{{ t$('header.member')() }}</a>
         </nav>
         <div class="mega-panel" *ngIf="panelType"
           (mouseenter)="panelType = panelType"
@@ -59,7 +60,7 @@ import { RouterModule } from '@angular/router';
   imports: [NgIf, LanguageSwitcherComponent, SearchComponent, RouterModule],
 })
 export class HeaderComponent implements OnDestroy {
-  panelType: 'products' | 'docs' | 'contact' | '' = '';
+  panelType: 'products' | 'docs' | 'contact' | 'member' | '' = '';
   navOpen = false;
   isMobile = false;
   private destroy$ = new Subject<void>();
@@ -76,7 +77,7 @@ export class HeaderComponent implements OnDestroy {
     this.navOpen = !this.navOpen;
   }
 
-  showPanel(type: 'products' | 'docs' | 'contact') {
+  showPanel(type: 'products' | 'docs' | 'contact' | 'member') {
     this.panelType = type;
   }
 

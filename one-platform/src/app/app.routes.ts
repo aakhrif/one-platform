@@ -13,6 +13,16 @@ export const appRoutes: Route[] = [
     children: [
       {
         path: '',
+        component: NxWelcome
+      }
+    ],
+  },
+  {
+    path: 'member',
+    component: StartLayoutComponent,
+    children: [
+      {
+        path: '',
         loadComponent: () => import('shared/ui/feature-start/feature-start-shell.component').then(m => m.FeatureStartShellComponent),
         pathMatch: 'full',
       },

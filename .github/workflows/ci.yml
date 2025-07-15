@@ -1,29 +1,30 @@
-name: Deploy OnePlatform
+# Pause deployment
+# name: Deploy OnePlatform
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
 
-      - name: Copy SSH key
-        run: |
-          echo "${{ secrets.DEPLOY_SSH_KEY }}" > key
-          chmod 600 key
+#       - name: Copy SSH key
+#         run: |
+#           echo "${{ secrets.DEPLOY_SSH_KEY }}" > key
+#           chmod 600 key
 
-      - name: Deploy via SSH
-        run: |
-          ssh -i key -o StrictHostKeyChecking=no spectres@${{ secrets.DEPLOY_HOST }} << 'EOF'
-            cd /home/spectres/angular-workspace
-            git pull origin main
-            docker compose -f docker-compose.yml build --no-cache
-            docker compose -f docker-compose.yml up -d
-            # To do ....
-          EOF
+#       - name: Deploy via SSH
+#         run: |
+#           ssh -i key -o StrictHostKeyChecking=no spectres@${{ secrets.DEPLOY_HOST }} << 'EOF'
+#             cd /home/spectres/angular-workspace
+#             git pull origin main
+#             docker compose -f docker-compose.yml build --no-cache
+#             docker compose -f docker-compose.yml up -d
+#             # To do ....
+#           EOF
