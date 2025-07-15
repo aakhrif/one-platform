@@ -6,6 +6,8 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { appRoutes } from './app/app.routes';
 import { provideAuthService } from '@angular-workspace/auth/auth.service';
 import { provideStore } from '@ngrx/store';
+import { APP_CONFIG } from 'shared/tokens/app-config.token';
+import { environment } from './environments/environment';
 
 bootstrapApplication(App, {
   providers: [
@@ -13,6 +15,7 @@ bootstrapApplication(App, {
     provideHttpClient(),
     provideAnimations(),
     provideAuthService(),
-    provideStore()
-],
+    provideStore(),
+    { provide: APP_CONFIG, useValue: { showBanner: environment.showBanner } }
+  ],
 }).catch((err) => console.error(err));

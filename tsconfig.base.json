@@ -22,6 +22,7 @@
       "@angular-workspace/dashboard/*": ["features/dashboard/*"],
       "@features/*": ["features/*"],
       "@shared/*": ["shared/*"],
+      "@one-platform/*": ["one-platform/*"],
       "@shared/ui/layouts/*": ["shared/ui/layouts/*"],
       "@sections/*": ["sections/*"],
       "@pages/*": ["pages/*"],
