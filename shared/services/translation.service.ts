@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { signal, Signal } from '@angular/core';
+import { signal, Signal, computed } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 type TranslationDict = { [key: string]: string | TranslationDict };
@@ -7,7 +7,7 @@ type TranslationDict = { [key: string]: string | TranslationDict };
 @Injectable({ providedIn: 'root' })
 export class TranslationService {
   lang = signal<string>('de');
-  private translations: TranslationDict = {};
+  private translations = signal<TranslationDict>({});
   translationsLoaded = signal<boolean>(false);
 
   constructor(private http: HttpClient) {
@@ -28,23 +28,22 @@ export class TranslationService {
     const url = `/assets/i18n/${lang}.json`;
     return this.http.get<TranslationDict>(url).subscribe({
       next: (translations) => {
-        this.translations = translations;
+        this.translations.set(translations);
         this.lang.set(lang);
         this.translationsLoaded.set(true);
       },
       error: () => {
-        this.translations = {};
+        this.translations.set({});
         this.lang.set(lang);
         this.translationsLoaded.set(false);
       }
     });
   }
 
-  translate(key: string): string {
-    const value = this.translations[key];
-    if (typeof value === 'string') {
-      return value;
-    }
-    return '';
+  translate(key: string): Signal<string> {
+    return computed(() => {
+      const value = this.translations()[key];
+      return typeof value === 'string' ? value : '';
+    });
   }
 }
