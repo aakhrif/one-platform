@@ -22,8 +22,11 @@
       "@angular-workspace/dashboard/*": ["features/dashboard/*"],
       "@features/*": ["features/*"],
       "@shared/*": ["shared/*"],
+      "@shared/ui/layouts/*": ["shared/ui/layouts/*"],
+      "@sections/*": ["sections/*"],
+      "@pages/*": ["pages/*"],
       "@shared/language-switcher": ["shared/ui/language-switcher/language-switcher.component.ts"],
-      "@shared/language-switcher/*": ["shared/ui/language-switcher/*"],
+      "@shared/language-switcher/*": ["shared/ui/language-switcher/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
