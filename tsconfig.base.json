@@ -26,7 +26,8 @@
       "@sections/*": ["sections/*"],
       "@pages/*": ["pages/*"],
       "@shared/language-switcher": ["shared/ui/language-switcher/language-switcher.component.ts"],
-      "@shared/language-switcher/*": ["shared/ui/language-switcher/*"]
+      "@shared/language-switcher/*": ["shared/ui/language-switcher/*"],
+      "@shared/types/interfaces": ["shared/types/interfaces/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
