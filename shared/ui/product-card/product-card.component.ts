@@ -20,5 +20,6 @@ export class ProductCardComponent {
   @Input() icon = 'star_border';
   @Input() recommended = false;
 
+  @Input() hovered = false;
   @Output() buy = new EventEmitter<void>();
 }

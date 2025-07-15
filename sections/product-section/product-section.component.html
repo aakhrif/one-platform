@@ -1,14 +1,17 @@
 <section class="product-section">
   <h2 class="product-section__headline">Unsere Services</h2>
   <div class="product-section__cards">
-    <ui-product-card *ngFor="let p of products"
+    <ui-product-card *ngFor="let p of products; let i = index"
       [name]="p.name"
       [description]="p.description"
       [features]="p.features"
       [price]="p.price"
       [currency]="p.currency"
       [icon]="p.icon"
-      [recommended]="p.recommended">
+      [recommended]="p.recommended"
+      [hovered]="hoveredIndex === i"
+      (mouseenter)="setHovered(i)"
+      (mouseleave)="setHovered(null)">
     </ui-product-card>
   </div>
 </section>

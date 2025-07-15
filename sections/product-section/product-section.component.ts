@@ -22,9 +22,14 @@ interface Product {
 })
 export class ProductSectionComponent implements OnInit {
   products: Product[] = [];
+  hoveredIndex: number | null = null;
 
   async ngOnInit() {
     const resp = await fetch('assets/products.json');
     this.products = await resp.json();
+  }
+
+  setHovered(idx: number|null) {
+    this.hoveredIndex = idx;
   }
 }
