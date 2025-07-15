@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,4 +19,6 @@ export class ProductCardComponent {
   @Input() currency = 'EUR';
   @Input() icon = 'star_border';
   @Input() recommended = false;
+
+  @Output() buy = new EventEmitter<void>();
 }

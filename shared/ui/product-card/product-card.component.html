@@ -21,6 +21,6 @@
     <div class="product-card__price">
       <span class="product-card__price-value">{{ price | number:'1.2-2' }} {{ currency }}</span>
     </div>
-    <button mat-raised-button color="primary">Jetzt kaufen</button>
+    <button mat-raised-button color="primary" (click)="buy.emit()">Jetzt kaufen</button>
   </mat-card-actions>
 </mat-card>
