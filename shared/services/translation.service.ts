@@ -8,6 +8,7 @@ type TranslationDict = { [key: string]: string | TranslationDict };
 export class TranslationService {
   lang = signal<string>('de');
   private translations: TranslationDict = {};
+  translationsLoaded = signal<boolean>(false);
 
   constructor(private http: HttpClient) {
     this.loadTranslations('de');
@@ -29,10 +30,12 @@ export class TranslationService {
       next: (translations) => {
         this.translations = translations;
         this.lang.set(lang);
+        this.translationsLoaded.set(true);
       },
       error: () => {
         this.translations = {};
         this.lang.set(lang);
+        this.translationsLoaded.set(false);
       }
     });
   }
@@ -42,6 +45,6 @@ export class TranslationService {
     if (typeof value === 'string') {
       return value;
     }
-    return key;
+    return '';
   }
 }

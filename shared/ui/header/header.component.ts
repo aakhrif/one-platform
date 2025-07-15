@@ -3,10 +3,10 @@ import { TopBannerService } from 'shared/services/top-banner.service';
 import { NgIf, NgClass } from '@angular/common';
 import { LanguageSwitcherComponent } from '../language-switcher/language-switcher.component';
 import { SearchComponent } from '../search/search.component';
-import { TranslationService } from 'shared/services/translation.service';
 import { Subject } from 'rxjs';
 import { RouterModule } from '@angular/router';
 import type { PanelType } from '../../types/interfaces/index';
+import { TranslationService } from '@shared/services/translation.service';
 
 @Component({
   selector: 'ui-header',
@@ -20,11 +20,11 @@ export class HeaderComponent implements OnDestroy {
   navOpen = false;
   isMobile = false;
   private destroy$ = new Subject<void>();
-  private translation = inject(TranslationService);
   private topBanner = inject(TopBannerService);
+  private translationService = inject(TranslationService);
   showBanner = this.topBanner.show;
 
-
+  t$ = (key: string) => this.translationService.translate(key);
   // Computed property für dynamische CSS-Klasse
   headerClass = computed(() => this.showBanner() ? 'with-banner' : '');
 
@@ -40,8 +40,6 @@ export class HeaderComponent implements OnDestroy {
   showPanel(type: PanelType) {
     this.panelType = type;
   }
-
-  t$ = (key: string) => () => this.translation.translate(key);
 
   logDocsClick(event: Event) {
     // intentionally left blank

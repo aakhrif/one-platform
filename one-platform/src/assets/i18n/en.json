@@ -18,5 +18,6 @@
   "footer.impressum": "Impress",
   "footer.datenschutz": "Data privacy",
   "footer.impressumText": "Community driven project, Demo purposes.",
-  "footer.datenschutzText": "No data is currently collected."
+  "footer.datenschutzText": "No data is currently collected.",
+  "banner.infoText": "Note: This website is a pure demo project for presenting modern software engineering practices and patterns, especially with Angular. All products, services, and data displayed are fictional and serve solely for demonstration purposes."
 }

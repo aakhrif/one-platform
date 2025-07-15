@@ -7,10 +7,10 @@
   </button>
   <div class="ui-header__nav-wrap" [class.open]="navOpen">
     <nav class="ui-header__nav">
-      <a routerLink="/products" routerLinkActive="active" (mouseenter)="showPanel('products')">{{ t$('header.products')() }}</a>
-      <a routerLink="/docs" routerLinkActive="active" (mouseenter)="showPanel('docs')">{{ t$('header.docs')() }}</a>
-      <a routerLink="/contact" routerLinkActive="active" (mouseenter)="showPanel('contact')">{{ t$('header.contact')() }}</a>
-      <a routerLink="/member" routerLinkActive="active">{{ t$('header.member')() }}</a>
+      <a routerLink="/products" routerLinkActive="active" (mouseenter)="showPanel('products')">{{ t$('header.products') }}</a>
+      <a routerLink="/docs" routerLinkActive="active" (mouseenter)="showPanel('docs')">{{ t$('header.docs') }}</a>
+      <a routerLink="/contact" routerLinkActive="active" (mouseenter)="showPanel('contact')">{{ t$('header.contact') }}</a>
+      <a routerLink="/member" routerLinkActive="active">{{ t$('header.member') }}</a>
     </nav>
     <div class="mega-panel" *ngIf="panelType"
       (mouseenter)="panelType = panelType"
@@ -18,10 +18,10 @@
       <div class="mega-panel__content">
         <ng-container *ngIf="panelType === 'products'">
           <div class="mega-panel__section">
-            <a routerLink="/products/normen">{{ t$('products.normen')() }}</a>
-            <a routerLink="/products/iso">{{ t$('products.iso')() }}</a>
-            <a routerLink="/products/transformation">{{ t$('products.transformation')() }}</a>
-            <a routerLink="/products/prozesse">{{ t$('products.prozesse')() }}</a>
+            <a routerLink="/products/normen">{{ t$('products.normen') }}</a>
+            <a routerLink="/products/iso">{{ t$('products.iso') }}</a>
+            <a routerLink="/products/transformation">{{ t$('products.transformation') }}</a>
+            <a routerLink="/products/prozesse">{{ t$('products.prozesse') }}</a>
           </div>
         </ng-container>
         <ng-container *ngIf="panelType === 'docs'">

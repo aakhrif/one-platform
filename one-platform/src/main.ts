@@ -8,6 +8,9 @@ import { provideAuthService } from '@angular-workspace/auth/auth.service';
 import { provideStore } from '@ngrx/store';
 import { APP_CONFIG } from 'shared/tokens/app-config.token';
 import { environment } from './environments/environment';
+import { provideAppInitializer, inject } from '@angular/core';
+import { TranslationService } from 'shared/services/translation.service';
+import { translationInitializerFactory } from 'shared/app-initializer/translation.initializer';
 
 bootstrapApplication(App, {
   providers: [
@@ -16,6 +19,7 @@ bootstrapApplication(App, {
     provideAnimations(),
     provideAuthService(),
     provideStore(),
-    { provide: APP_CONFIG, useValue: { showBanner: environment.showBanner } }
+    { provide: APP_CONFIG, useValue: { showBanner: environment.showBanner } },
+    provideAppInitializer(() => translationInitializerFactory(inject(TranslationService))),
   ],
 }).catch((err) => console.error(err));

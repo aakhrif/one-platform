@@ -1,6 +1,7 @@
 import { Component, inject, computed } from '@angular/core';
 import { TopBannerService } from 'shared/services/top-banner.service';
 import { CommonModule } from '@angular/common';
+import { TranslationService } from 'shared/services/translation.service';
 
 @Component({
   selector: 'ui-top-banner',
@@ -11,6 +12,11 @@ import { CommonModule } from '@angular/common';
 })
 export class TopBannerComponent {
   private topBanner = inject(TopBannerService);
-  text = computed(() => this.topBanner.text());
-  show = computed(() => this.topBanner.show());
+  private translation = inject(TranslationService);
+  t$ = (key: string) => () => this.translation.translate(key);
+  show = computed(() => {
+    const visible = this.topBanner.show();
+    const loaded = this.translation.translationsLoaded();
+    return visible && loaded;
+  });
 }

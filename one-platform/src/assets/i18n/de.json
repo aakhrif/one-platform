@@ -18,5 +18,6 @@
   "footer.impressum": "Impressum",
   "footer.datenschutz": "Datenschutz",
   "footer.impressumText": "Community Projekt, nur zu Demo-Zwecken.",
-  "datenschutzText": "Derzeit werden keine Daten erhoben."
+  "datenschutzText": "Derzeit werden keine Daten erhoben.",
+  "banner.infoText": "Hinweis: Diese Website ist ein reines Demoprojekt zur Präsentation moderner Software-Engineering-Praktiken und -Patterns, insbesondere mit Angular. Alle dargestellten Produkte, Services und Daten sind fiktiv und dienen ausschließlich Demonstrationszwecken."
 }
