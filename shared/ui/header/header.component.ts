@@ -1,5 +1,6 @@
-import { Component, HostListener, OnDestroy, inject } from '@angular/core';
-import { NgIf } from '@angular/common';
+import { Component, HostListener, OnDestroy, inject, computed } from '@angular/core';
+import { TopBannerService } from 'shared/services/top-banner.service';
+import { NgIf, NgClass } from '@angular/common';
 import { LanguageSwitcherComponent } from '../language-switcher/language-switcher.component';
 import { SearchComponent } from '../search/search.component';
 import { TranslationService } from 'shared/services/translation.service';
@@ -9,7 +10,7 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'ui-header',
   template: `
-    <header class="ui-header">
+    <header class="ui-header" [ngClass]="headerClass()">
       <span class="ui-header__logo">
         <a routerLink="/" style="text-decoration:none;color:inherit;cursor:pointer">1 🌐 OnePlatform</a>
       </span>
@@ -57,7 +58,7 @@ import { RouterModule } from '@angular/router';
   `,
   styleUrls: ['./header.component.scss'],
   standalone: true,
-  imports: [NgIf, LanguageSwitcherComponent, SearchComponent, RouterModule],
+  imports: [NgIf, NgClass, LanguageSwitcherComponent, SearchComponent, RouterModule],
 })
 export class HeaderComponent implements OnDestroy {
   panelType: 'products' | 'docs' | 'contact' | 'member' | '' = '';
@@ -65,8 +66,12 @@ export class HeaderComponent implements OnDestroy {
   isMobile = false;
   private destroy$ = new Subject<void>();
   private translation = inject(TranslationService);
+  private topBanner = inject(TopBannerService);
+  showBanner = this.topBanner.show;
 
-  // DeviceService-Initialisierung entfernt. isMobile wird jetzt von außen gesetzt.
+
+  // Computed property für dynamische CSS-Klasse
+  headerClass = computed(() => this.showBanner() ? 'with-banner' : '');
 
   ngOnDestroy() {
     this.destroy$.next();

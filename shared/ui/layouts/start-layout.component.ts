@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { UiFooterComponent } from '../footer/footer.component';
+import { TopBannerComponent } from 'shared/ui/top-banner/top-banner.component';
 
 @Component({
   selector: 'ui-start-layout',
   template: `
     <div class="start-layout">
+      <ui-top-banner></ui-top-banner>
       <ui-header></ui-header>
       <router-outlet></router-outlet>
       <ui-footer></ui-footer>
@@ -14,6 +16,6 @@ import { UiFooterComponent } from '../footer/footer.component';
   `,
   styleUrls: ['./start-layout.component.scss'],
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, UiFooterComponent],
+  imports: [RouterOutlet, HeaderComponent, UiFooterComponent, TopBannerComponent],
 })
 export class StartLayoutComponent {}
