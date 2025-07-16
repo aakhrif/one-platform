@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { trigger, transition, style, animate, keyframes } from '@angular/animations';
 import { LoginComponent } from '../../../features/auth/login/login.component';
 import { ChatAssistantComponent } from '../../../features/chat-assistant/chat-assistant.component';
@@ -67,6 +67,7 @@ import { TranslationService } from '../../services/translation.service';
   ],
   standalone: true,
   imports: [LoginComponent, ChatAssistantComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FeatureStartComponent {
   private translation = inject(TranslationService);

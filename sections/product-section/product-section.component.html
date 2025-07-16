@@ -1,7 +1,8 @@
 <section class="product-section">
   <h2 class="product-section__headline">Unsere Services</h2>
   <div class="product-section__cards">
-    <ui-product-card *ngFor="let p of products; let i = index"
+    <!-- <ui-product-card *ngFor="let p of products; let i = index" -->
+     <ui-product-card *ngFor="let p of products$ | async; let i = index"
       [name]="p.name"
       [description]="p.description"
       [features]="p.features"

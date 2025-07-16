@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { DeviceService } from '../../services/device.service';
 import { FeatureStartMobileComponent } from '../feature-start/feature-start-mobile.component';
 import { FeatureStartComponent } from './feature-start.component';
@@ -7,6 +7,7 @@ import { FeatureStartComponent } from './feature-start.component';
   selector: 'feature-start-shell',
   standalone: true,
   imports: [FeatureStartMobileComponent, FeatureStartComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (device.isMobile()) {
       <feature-start-mobile></feature-start-mobile>

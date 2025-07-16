@@ -100,5 +100,10 @@
         "config": "one-platform/playwright.config.ts"
       }
     }
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "changeDetection": "OnPush"
+    }
   }
 }

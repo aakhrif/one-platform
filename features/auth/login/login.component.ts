@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { AuthService } from '@angular-workspace/auth/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -12,6 +12,7 @@ import { UiInputComponent } from '@shared/ui/input/input.component';
   styleUrls: ['./login.component.scss'],
   standalone: true,
   imports: [CommonModule, FormsModule, RegisterComponent, UiInputComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
   username = '';

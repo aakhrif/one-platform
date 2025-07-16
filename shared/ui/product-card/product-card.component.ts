@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { DecimalPipe } from '@angular/common';
+import { ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'ui-product-card',
@@ -12,6 +13,7 @@ import { DecimalPipe } from '@angular/common';
   styleUrls: ['./product-card.component.scss'],
   standalone: true,
   imports: [MatCardModule, MatButtonModule, MatIconModule, DecimalPipe],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductCardComponent {
   private iconRegistry = inject(MatIconRegistry);

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { LoginComponent } from '../../../features/auth/login/login.component';
 
 @Component({
@@ -17,5 +17,6 @@ import { LoginComponent } from '../../../features/auth/login/login.component';
   styleUrls: ['./feature-start-mobile.component.scss'],
   standalone: true,
   imports: [LoginComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FeatureStartMobileComponent {}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalComponent } from 'shared/ui/modal/modal.component';
 
@@ -12,6 +12,7 @@ import { ModalComponent } from 'shared/ui/modal/modal.component';
   styleUrls: ['./dashboard-child2.component.scss'],
   standalone: true,
   imports: [ModalComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardChild2Component {
   constructor(private router: Router) {}

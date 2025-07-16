@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { routeAnimations } from 'shared/animations/route-animations';
 import { CommonModule } from '@angular/common';
@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.html',
   styleUrl: './app.scss',
   animations: routeAnimations,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
 

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ModalComponent } from 'shared/ui/modal/modal.component';
 import { CommonModule } from '@angular/common';
 import { TranslationService } from '@shared/services/translation.service';
@@ -31,6 +31,7 @@ import { TranslationService } from '@shared/services/translation.service';
   styleUrls: ['./footer.component.scss'],
   standalone: true,
   imports: [ModalComponent, CommonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UiFooterComponent {
   showModal = false;

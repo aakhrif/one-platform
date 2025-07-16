@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet, RouterModule } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
@@ -23,6 +23,7 @@ import { AsyncPipe } from '@angular/common';
   styleUrls: ['./dashboard-layout.component.scss'],
   standalone: true,
   imports: [RouterOutlet, RouterModule, AsyncPipe],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardLayoutComponent {
   modalOpen$ = new BehaviorSubject(false);

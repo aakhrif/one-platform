@@ -8,12 +8,15 @@ import { RouterModule } from '@angular/router';
 import type { PanelType } from '../../types/interfaces/index';
 import { TranslationService } from '@shared/services/translation.service';
 
+import { ChangeDetectionStrategy } from '@angular/core';
+
 @Component({
   selector: 'ui-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   standalone: true,
   imports: [NgIf, NgClass, LanguageSwitcherComponent, SearchComponent, RouterModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnDestroy {
   panelType: PanelType = '';
