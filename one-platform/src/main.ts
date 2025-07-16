@@ -4,7 +4,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { appRoutes } from './app/app.routes';
-import { provideAuthService } from '@angular-workspace/auth/auth.service';
+import { provideAuthService } from 'shared/services/auth.service';
 import { provideStore } from '@ngrx/store';
 import { APP_CONFIG } from 'shared/tokens/app-config.token';
 import { environment } from './environments/environment';
