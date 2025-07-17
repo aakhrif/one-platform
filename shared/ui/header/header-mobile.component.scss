@@ -11,6 +11,10 @@
   padding: 0.7rem 1rem;
 }
 
+.ui-header-mobile.with-banner {
+  top: 2.5rem;
+}
+
 .ui-header-mobile__row {
   display: flex;
   align-items: center;
@@ -35,6 +39,7 @@
   border: none;
   cursor: pointer;
   gap: 0.3rem;
+  margin-right: 1.5rem;
 }
 .ui-header-mobile__burger span {
   display: block;
@@ -54,4 +59,9 @@
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+}
+
+/** Set the header to be below the top banner if it exists */
+.ui-header-mobile.with-banner {
+  top: 2.5rem;
 }

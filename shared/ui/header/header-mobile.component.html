@@ -1,0 +1,15 @@
+<header class="ui-header-mobile" [ngClass]="headerClass()">
+  <div class="ui-header-mobile__row">
+    <span class="ui-header-mobile__logo">one<span class="logo-one">.</span>platform</span>
+    <ui-search class="ui-header-mobile__search"></ui-search>
+    <button class="ui-header-mobile__burger" (click)="openMenu = !openMenu" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  @if (openMenu) {
+    <nav class="ui-header-mobile__nav">
+      <!-- Hier Navigation, Language Switcher etc. einbauen -->
+      <ng-content></ng-content>
+    </nav>
+  }
+</header>

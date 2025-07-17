@@ -6,10 +6,10 @@
 }
 
 .product-section {
-  width: 100%;
-  margin: 4rem auto 2rem auto;
-  padding: 0 2rem;
   max-width: 1400px;
+  margin: 4rem auto 2rem auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 .product-section__headline {
