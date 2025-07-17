@@ -74,6 +74,6 @@ export class FeatureStartComponent {
 
   t$ = (key: string) => {
     // Signal-basiert: gibt ein Signal zurück, das sich bei Sprachwechsel aktualisiert
-    return () => this.translation.translate(key);
+    return this.translation.translate(key);
   };
 }
