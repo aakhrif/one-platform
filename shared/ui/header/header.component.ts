@@ -1,4 +1,6 @@
 import { Component, inject, computed, OnDestroy, HostListener } from '@angular/core';
+import { DeviceService } from '../../services/device.service';
+import { HeaderMobileComponent } from './header-mobile.component';
 import { TopBannerService } from 'shared/services/top-banner.service';
 import { NgIf, NgClass } from '@angular/common';
 import { LanguageSwitcherComponent } from '../language-switcher/language-switcher.component';
@@ -15,13 +17,16 @@ import { ChangeDetectionStrategy } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   standalone: true,
-  imports: [NgIf, NgClass, LanguageSwitcherComponent, SearchComponent, RouterModule],
+  imports: [NgIf, NgClass, LanguageSwitcherComponent, SearchComponent, RouterModule, HeaderMobileComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnDestroy {
+  device = inject(DeviceService);
   panelType: PanelType = '';
   navOpen = false;
-  isMobile = false;
+  get isMobile() {
+    return this.device.isMobile();
+  }
   private destroy$ = new Subject<void>();
   private topBanner = inject(TopBannerService);
   private translationService = inject(TranslationService);

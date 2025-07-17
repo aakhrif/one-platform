@@ -3,7 +3,7 @@ import { fromEvent } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class DeviceService implements OnDestroy {
-  private mobileBreakpoint = 900;
+  private mobileBreakpoint = 1200;
   isMobile = signal<boolean>(window.innerWidth <= this.mobileBreakpoint);
   private resizeSub = fromEvent(window, 'resize')
     .subscribe(() => {
