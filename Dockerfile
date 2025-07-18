@@ -23,8 +23,5 @@ WORKDIR /app
 COPY --from=builder /app/dist/one-platform /app/dist/one-platform
 COPY --from=builder /app/package*.json ./
 
-# Installiere nur die Production-Dependencies
-RUN npm ci --omit=dev
-
 EXPOSE 4000
 CMD ["node", "dist/one-platform/server/main.js"]
