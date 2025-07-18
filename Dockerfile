@@ -8,7 +8,7 @@ COPY nx.json ./
 COPY tsconfig.base.json ./
 COPY . .
 
-RUN npm ci
+RUN npm ci --legacy-peer-deps
 
 # Baue SSR-Bundle
 RUN npx nx build one-platform --configuration=production --verbose
