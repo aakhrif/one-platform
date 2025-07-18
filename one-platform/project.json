@@ -4,6 +4,11 @@
   "projectType": "application",
   "prefix": "app",
   "sourceRoot": "one-platform/src",
+  "schematics": {
+    "@schematics/angular:component": {
+      "changeDetection": "OnPush"
+    }
+  },
   "tags": [],
   "targets": {
     "build": {
@@ -28,7 +33,12 @@
             "output": "assets"
           }
         ],
-        "styles": ["one-platform/src/styles.scss"]
+        "styles": ["one-platform/src/styles.scss"],
+        "server": "one-platform/src/main.server.ts",
+        "ssr": {
+          "entry": "one-platform/src/server.ts"
+        },
+        "outputMode": "server"
       },
       "configurations": {
         "production": {
@@ -92,18 +102,12 @@
         "staticFilePath": "dist/one-platform/browser",
         "spa": true
       }
-    }
-    ,
+    },
     "playwright": {
       "executor": "@nx/playwright:playwright",
       "options": {
         "config": "one-platform/playwright.config.ts"
       }
-    }
-  },
-  "schematics": {
-    "@schematics/angular:component": {
-      "changeDetection": "OnPush"
     }
   }
 }
