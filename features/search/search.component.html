@@ -1,12 +1,15 @@
-<div class="ui-search" [ngClass]="{ 'ui-search--focused': focused }">
-  <input
-    type="text"
-    [value]="query()"
-    (input)="onQueryChange($event)"
-    name="search"
-    placeholder="Suchen..."
-    class="ui-search__input"
-    (focus)="focused = true"
-    (blur)="focused = false"
-  />
+
+<div class="search-container">
+  <div class="ui-search" [ngClass]="{ 'ui-search--focused': focused }">
+    <input
+      type="text"
+      [value]="query()"
+      (input)="onQueryChange($event)"
+      name="search"
+      placeholder="Suchen..."
+      class="ui-search__input"
+      (focus)="focused = true"
+      (blur)="focused = false"
+    />
+  </div>
 </div>
