@@ -2,11 +2,12 @@
 <div class="search-container">
   <div class="ui-search" [ngClass]="{ 'ui-search--focused': focused }">
     <input
+      #searchInput
       type="text"
+      [placeholder]="animatedPlaceholder || 'Suchen...'"
       [value]="query"
       (input)="onQueryChange($event)"
       name="search"
-      placeholder="Suchen..."
       class="ui-search__input"
       (focus)="focused = true"
       (blur)="focused = false"

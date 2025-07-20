@@ -1,10 +1,12 @@
-import { Component, inject, computed, OnDestroy, HostListener } from '@angular/core';
+import { Component, inject, computed, OnDestroy, HostListener, ViewChild, AfterViewInit } from '@angular/core';
+import { toObservable } from '@angular/core/rxjs-interop';
 import { DeviceService } from '../../services/device.service';
 import { HeaderMobileComponent } from './header-mobile.component';
 import { TopBannerService } from 'shared/services/top-banner.service';
 import { NgIf, NgClass } from '@angular/common';
 import { LanguageSwitcherComponent } from '../language-switcher/language-switcher.component';
 import { SearchComponent } from '../../../features/search/search.component';
+import { HeroFeatureService } from '../../../shared/services/hero-feature.service';
 import { Subject } from 'rxjs';
 import { RouterModule } from '@angular/router';
 import type { PanelType } from '../../types/interfaces/index';
@@ -20,7 +22,19 @@ import { ChangeDetectionStrategy } from '@angular/core';
   imports: [NgIf, NgClass, LanguageSwitcherComponent, SearchComponent, RouterModule, HeaderMobileComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent implements OnDestroy {
+export class HeaderComponent implements OnDestroy, AfterViewInit {
+  @ViewChild('searchCmp') searchComponent?: SearchComponent;
+  private heroFeatureService = inject(HeroFeatureService);
+  private focusSearch$ = toObservable(this.heroFeatureService.focusSearch);
+
+  ngAfterViewInit() {
+    this.focusSearch$.subscribe((focus: boolean) => {
+      if (focus && this.searchComponent) {
+        this.searchComponent.focusInput();
+        this.heroFeatureService.consumeFocusSearch();
+      }
+    });
+  }
   device = inject(DeviceService);
   panelType: PanelType = '';
   navOpen = false;

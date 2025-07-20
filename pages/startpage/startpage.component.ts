@@ -11,7 +11,6 @@ import { SearchStateService } from '../../features/search/search-state.service';
   template: `
     <section-hero></section-hero>
     <div class="search-container">
-      <!-- <ui-search (jobSelected)="onJobSelected($event)" (resultsChange)="onResultsChange($event)"></ui-search> -->
       <ui-search-result
         (jobSelected)="onJobSelected($event)"
         (closed)="onPanelClosed()"

@@ -1,7 +1,9 @@
 <section class="hero-section">
   <div class="hero-section__content">
-    <h1>Willkommen bei OnePlatform</h1>
-    <p>Die moderne Plattform für Normen, Prozesse und Transformation.</p>
-    <button mat-raised-button color="primary">Mehr erfahren</button>
+    <h1>{{ t$('hero.headline')() }}</h1>
+    <p>{{ t$('hero.desc1')() }}</p>
+    <p>{{ t$('hero.desc2')() }}</p>
+    <p>{{ t$('hero.desc3')() }}</p>
+    <button mat-raised-button color="primary" style="cursor:pointer" (click)="focusSearchInput()">{{ t$('hero.tryBtn')()}}</button>
   </div>
 </section>

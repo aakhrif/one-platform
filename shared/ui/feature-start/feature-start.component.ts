@@ -72,8 +72,6 @@ import { TranslationService } from '../../services/translation.service';
 export class FeatureStartComponent {
   private translation = inject(TranslationService);
 
-  t$ = (key: string) => {
-    // Signal-basiert: gibt ein Signal zurück, das sich bei Sprachwechsel aktualisiert
-    return this.translation.translate(key);
-  };
+  t$ = (key: string) => this.translation.translate(key);
+
 }
