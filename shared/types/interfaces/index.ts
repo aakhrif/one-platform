@@ -1,1 +1,1 @@
-export type PanelType = 'products' | 'docs' | 'contact' | 'member' | '';
+export type PanelType = 'features' | 'docs' | 'contact' | 'member' | '';
