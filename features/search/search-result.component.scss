@@ -10,6 +10,37 @@
   padding: 1.1rem 1.2rem 0.7rem 1.2rem;
   z-index: 2000;
   animation: fadeInDown 0.22s;
+ }
+
+@media (max-width: 600px) {
+  .search-result-panel {
+    right: 0.5rem;
+    left: 0.5rem;
+    width: auto;
+    max-width: 98vw;
+    top: calc(5.5rem + 8px);
+    padding: 0.7rem 0.5rem 0.5rem 0.5rem;
+    border-radius: 0.7rem;
+  }
+  .search-result-panel ul {
+    font-size: 0.98rem;
+  }
+  .job-title {
+    font-size: 1rem;
+  }
+  .job-company {
+    font-size: 0.92rem;
+  }
+  .job-skills {
+    font-size: 0.88rem;
+  }
+  .close-btn {
+    font-size: 1.2rem;
+    top: 0.6rem;
+    right: 0.7rem;
+    padding: 0.15rem 0.3rem;
+    border-radius: 0.4rem;
+  }
 }
 
 @keyframes fadeInDown {
