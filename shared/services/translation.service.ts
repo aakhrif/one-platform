@@ -25,7 +25,11 @@ export class TranslationService {
 
   private loadTranslations(lang: string) {
     // Korrigierter Pfad: one-platform/src/assets/i18n
-    const url = `/assets/i18n/${lang}.json`;
+    // Dynamisch: aus ENV, window, oder Fallback auf Zeitstempel
+    const buildVersion = (typeof window !== 'undefined' && (window as any).BUILD_VERSION)
+      || (typeof process !== 'undefined' && (process.env && process.env['NX_BUILD_VERSION']))
+      || Date.now();
+    const url = `/assets/i18n/${lang}.json?v=${buildVersion}`;
     return this.http.get<TranslationDict>(url).subscribe({
       next: (translations) => {
         this.translations.set(translations);
