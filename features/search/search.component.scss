@@ -25,11 +25,15 @@
   width: 140px;
   color: #2a1745;
   transition: width 0.22s, padding 0.18s, height 0.18s;
+  &:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
 }
 .ui-search--focused .ui-search__input {
-  width: 220px;
   padding: 0.2rem 0.2rem;
-  height: 2.7rem;
+  height: 2.2rem;
 }
 .ui-search__button {
   background: none;

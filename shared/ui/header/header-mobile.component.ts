@@ -2,7 +2,7 @@
 import { Component, inject, computed } from '@angular/core';
 import { DeviceService } from '../../services/device.service';
 import { TopBannerService } from '../../services/top-banner.service';
-import { SearchComponent } from '../search/search.component';
+import { SearchComponent } from '../../../features/search/search.component';
 import { NgClass } from '@angular/common';
 
 @Component({

@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { NgClass } from '@angular/common';
 
 @Component({
@@ -7,15 +6,15 @@ import { NgClass } from '@angular/common';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
   standalone: true,
-  imports: [FormsModule, NgClass],
+  imports: [NgClass],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchComponent {
-  query = '';
-  @Output() search = new EventEmitter<string>();
+  query = signal('');
   focused = false;
 
-  onSearch() {
-    this.search.emit(this.query);
+  onQueryChange(event: Event): void {
+    this.query.set((event.target as HTMLInputElement).value);
+    console.log('query ', this.query());
   }
 }

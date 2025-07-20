@@ -4,7 +4,7 @@ import { HeaderMobileComponent } from './header-mobile.component';
 import { TopBannerService } from 'shared/services/top-banner.service';
 import { NgIf, NgClass } from '@angular/common';
 import { LanguageSwitcherComponent } from '../language-switcher/language-switcher.component';
-import { SearchComponent } from '../search/search.component';
+import { SearchComponent } from '../../../features/search/search.component';
 import { Subject } from 'rxjs';
 import { RouterModule } from '@angular/router';
 import type { PanelType } from '../../types/interfaces/index';

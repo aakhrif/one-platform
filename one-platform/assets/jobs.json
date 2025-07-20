@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "Angular Frontend Developer",
+    "company": "TechVision",
+    "location": "Berlin",
+    "type": "Full-time",
+    "skills": ["Angular", "TypeScript", "RxJS"],
+    "description": "Entwicklung moderner Angular-Anwendungen im Team."
+  },
+  {
+    "id": 2,
+    "title": "Senior Angular Engineer",
+    "company": "InnovateX",
+    "location": "Hamburg",
+    "type": "Full-time",
+    "skills": ["Angular", "NgRx", "SCSS"],
+    "description": "Architektur und Umsetzung von Enterprise-Frontends mit Angular."
+  },
+  {
+    "id": 3,
+    "title": "Angular Consultant",
+    "company": "ConsultIT",
+    "location": "Remote",
+    "type": "Contract",
+    "skills": ["Angular", "Testing", "CI/CD"],
+    "description": "Beratung und Schulung für Angular-Projekte."
+  },
+  {
+    "id": 4,
+    "title": "React Developer",
+    "company": "WebWorks",
+    "location": "München",
+    "type": "Full-time",
+    "skills": ["React", "Redux", "JavaScript"],
+    "description": "Entwicklung von Single-Page-Apps mit React."
+  },
+  {
+    "id": 5,
+    "title": "React Engineer",
+    "company": "AppForge",
+    "location": "Frankfurt",
+    "type": "Full-time",
+    "skills": ["React", "TypeScript", "Hooks"],
+    "description": "Mitgestaltung und Entwicklung von React-Komponenten."
+  },
+  {
+    "id": 6,
+    "title": "React Lead Developer",
+    "company": "DigitalCrew",
+    "location": "Remote",
+    "type": "Contract",
+    "skills": ["React", "Next.js", "Testing"],
+    "description": "Führung und Entwicklung im React-Umfeld."
+  },
+  {
+    "id": 7,
+    "title": "React UI Designer",
+    "company": "DesignHub",
+    "location": "Köln",
+    "type": "Part-time",
+    "skills": ["React", "CSS", "UX"],
+    "description": "UI/UX Design und Entwicklung mit React."
+  },
+  {
+    "id": 8,
+    "title": "Node.js Backend Developer",
+    "company": "ServerSide",
+    "location": "Stuttgart",
+    "type": "Full-time",
+    "skills": ["Node.js", "Express", "MongoDB"],
+    "description": "Backend-Entwicklung mit Node.js und modernen Datenbanken."
+  },
+  {
+    "id": 9,
+    "title": "Node.js Engineer",
+    "company": "CloudOps",
+    "location": "Remote",
+    "type": "Contract",
+    "skills": ["Node.js", "AWS", "Microservices"],
+    "description": "Cloud-native Backend-Entwicklung mit Node.js."
+  },
+  {
+    "id": 10,
+    "title": "Node.js API Developer",
+    "company": "APIExperts",
+    "location": "Düsseldorf",
+    "type": "Full-time",
+    "skills": ["Node.js", "REST", "Docker"],
+    "description": "Entwicklung und Wartung von RESTful APIs mit Node.js."
+  }
+]
