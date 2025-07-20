@@ -15,18 +15,22 @@ import { SearchStateService } from './search-state.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchComponent {
-  query = signal('');
+  searchState = inject(SearchStateService);
+  get query() {
+    return this.searchState.query();
+  }
+  setQuery(value: string) {
+    this.searchState.setQuery(value);
+  }
   focused = false;
   searchService = inject(SearchService);
-
-  searchState = inject(SearchStateService);
 
   // Output for results and job selection
   @Output() jobSelected = new EventEmitter<JobModel>();
   @Output() resultsChange = new EventEmitter<JobModel[]>();
 
   constructor() {
-    toObservable(this.query).pipe(
+    toObservable(this.searchState.query).pipe(
       debounceTime(300),
       distinctUntilChanged(),
       filter(this.isValidSearch),
@@ -43,8 +47,9 @@ export class SearchComponent {
   }
 
   onQueryChange(event: Event): void {
-    this.query.set((event.target as HTMLInputElement).value);
-    console.log('query ', this.query());
+    const value = (event.target as HTMLInputElement).value;
+    this.setQuery(value);
+    console.log('query ', value);
   }
 
   onJobSelected(job: JobModel) {

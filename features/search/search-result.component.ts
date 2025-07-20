@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Renderer2, ElementRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, inject, Output } from '@angular/core';
 import { JobModel } from './search.service';
 import { SearchStateService } from './search-state.service';
 import { CommonModule } from '@angular/common';
@@ -28,11 +29,14 @@ import { CommonModule } from '@angular/common';
 })
 export class SearchResultComponent {
   searchState = inject(SearchStateService);
+  renderer = inject(Renderer2);
+  el = inject(ElementRef);
+  @Output() jobSelected = new EventEmitter<JobModel>();
+  @Output() closed = new EventEmitter<void>();
+
   get results(): JobModel[] {
     return this.searchState.results();
   }
-  @Output() jobSelected = new EventEmitter<JobModel>();
-  @Output() closed = new EventEmitter<void>();
 
   trackById(index: number, job: JobModel) {
     return job.id;
@@ -46,5 +50,13 @@ export class SearchResultComponent {
     this.searchState.clearResults();
     this.closed.emit();
   }
+
+  // handleClickOutside(event: MouseEvent) {
+  //   if (this.el && this.el.nativeElement && !this.el.nativeElement.contains(event.target)) {
+  //     if (this.results.length) {
+  //       this.closePanel();
+  //     }
+  //   }
+  // }
 }
 

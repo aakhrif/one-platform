@@ -3,7 +3,7 @@
   <div class="ui-search" [ngClass]="{ 'ui-search--focused': focused }">
     <input
       type="text"
-      [value]="query()"
+      [value]="query"
       (input)="onQueryChange($event)"
       name="search"
       placeholder="Suchen..."
