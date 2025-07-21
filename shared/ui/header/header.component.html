@@ -1,7 +1,10 @@
 <ng-container *ngIf="!isMobile">
   <header class="ui-header" [ngClass]="headerClass()">
     <span class="ui-header__logo">
-      <a routerLink="/" style="text-decoration:none;color:inherit;cursor:pointer">🌐 OnePlatform</a>
+      <a routerLink="/" style="text-decoration:none;color:inherit;cursor:pointer">
+        <img src="/assets/images/logo.png" alt="OnePlatform Logo" style="height:2.2rem;vertical-align:middle;" />
+        <span class="oneplatform-logo-text">OnePlatform</span>
+      </a>
     </span>
     <button class="ui-header__burger" (click)="toggleNav()" aria-label="Menü öffnen/schließen">
       <span></span><span></span><span></span>
@@ -28,12 +31,6 @@
             <div class="mega-panel__section">
               <a routerLink="/docs" style="cursor:pointer">Getting Started</a>
               <a routerLink="/docs/api">API Reference</a>
-            </div>
-          </ng-container>
-          <ng-container *ngIf="panelType === 'contact'">
-            <div class="mega-panel__section">
-              <a routerLink="/contact/form">Contact Form</a>
-              <a routerLink="/contact/support">Support</a>
             </div>
           </ng-container>
         </div>

@@ -6,6 +6,7 @@ import { dashboardRoutes } from 'features/dashboard/dashboard.routes';
 import { StartLayoutComponent } from '@shared/ui/layouts/start-layout.component';
 import { DashboardLayoutComponent } from '@shared/ui/layouts/dashboard-layout.component';
 import { StartpageComponent} from '@pages/startpage/startpage.component';
+import { ContactPageComponent } from '@pages/contact/contactpage.component';
 
 export const appRoutes: Route[] = [
   {
@@ -15,6 +16,10 @@ export const appRoutes: Route[] = [
       {
         path: '',
         component: StartpageComponent
+      },
+      {
+        path: 'contact',
+        component: ContactPageComponent,
       }
     ],
   },
@@ -44,5 +49,5 @@ export const appRoutes: Route[] = [
     canActivate: [AuthGuard],
     component: DashboardLayoutComponent,
     children: dashboardRoutes,
-  },
+  }
 ];
