@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { trigger, transition, style, animate, keyframes } from '@angular/animations';
 import { LoginComponent } from '../../../features/auth/login/login.component';
-import { ChatAssistantComponent } from '../../../features/chat-assistant/chat-assistant.component';
 import { TranslationService } from '../../services/translation.service';
 
 @Component({
@@ -18,7 +17,6 @@ import { TranslationService } from '../../services/translation.service';
         <p>{{ t$('start.desc3')() }}</p>
       </div>
     </div>
-    <feature-chat-assistant class="chatbot-assistant-fixed"></feature-chat-assistant>
   `,
   styleUrls: ['./feature-start.component.scss'],
   animations: [
@@ -66,7 +64,7 @@ import { TranslationService } from '../../services/translation.service';
     ])
   ],
   standalone: true,
-  imports: [LoginComponent, ChatAssistantComponent],
+  imports: [LoginComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FeatureStartComponent {
